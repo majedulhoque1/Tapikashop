@@ -2,10 +2,14 @@
 
 const SESSION_KEY = 'tapika_os_session'
 
+// Built-in demo login so the prototype works on any deploy; VITE_OS_EMAIL / VITE_OS_PASSWORD override it.
+export const DEMO_CREDENTIALS = {
+  email: import.meta.env.VITE_OS_EMAIL || 'demo@tapika.shop',
+  password: import.meta.env.VITE_OS_PASSWORD || 'tapika-demo',
+}
+
 export function checkCredentials(email: string, password: string): boolean {
-  const expectedEmail = import.meta.env.VITE_OS_EMAIL ?? ''
-  const expectedPassword = import.meta.env.VITE_OS_PASSWORD ?? ''
-  return email.trim().toLowerCase() === expectedEmail.toLowerCase() && password === expectedPassword
+  return email.trim().toLowerCase() === DEMO_CREDENTIALS.email.toLowerCase() && password === DEMO_CREDENTIALS.password
 }
 
 export function setSession() {

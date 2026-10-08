@@ -2,7 +2,7 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 
-import { checkCredentials, hasSession, setSession } from '../os/auth'
+import { checkCredentials, DEMO_CREDENTIALS, hasSession, setSession } from '../os/auth'
 import { Icon, inputCls } from '../os/components/ui'
 
 export const Route = createFileRoute('/login')({
@@ -61,7 +61,23 @@ function Login() {
           </button>
         </form>
 
-        <p className="mt-5 text-center text-xs text-muted">Demo login. This is a prototype, not secure access.</p>
+        <div className="mt-5 rounded-lg border border-line bg-surface p-3 text-sm">
+          <p className="font-semibold">Demo login</p>
+          <dl className="mt-1.5 grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-muted">
+            <dt>Email</dt>
+            <dd className="select-all font-mono text-ink">{DEMO_CREDENTIALS.email}</dd>
+            <dt>Password</dt>
+            <dd className="select-all font-mono text-ink">{DEMO_CREDENTIALS.password}</dd>
+          </dl>
+          <button
+            type="button"
+            onClick={() => { setEmail(DEMO_CREDENTIALS.email); setPassword(DEMO_CREDENTIALS.password); setError(false) }}
+            className="mt-2.5 text-xs font-semibold text-ink underline underline-offset-2 hover:text-muted"
+          >
+            Fill in demo login
+          </button>
+        </div>
+        <p className="mt-3 text-center text-xs text-muted">Prototype only, not secure access.</p>
         <a href="/" className="mt-3 block text-center text-xs font-semibold text-muted hover:text-ink">
           Back to the shop
         </a>
