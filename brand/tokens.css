@@ -1,0 +1,226 @@
+/* =========================================================================
+   TAPIKA design tokens  (brand/tokens.css)
+   -------------------------------------------------------------------------
+   WHAT THIS FILE IS
+   Plain CSS custom properties on :root. Import it ONCE, first, in the app
+   stylesheet:   @import "../brand/tokens.css";   (or a <link> in <head>)
+   Works with or without Tailwind. Prefix: --tp-  (Tapika).
+
+   WHICH FILE DO I USE?
+   - tokens.css          ALWAYS. It holds the real values + dark mode.
+   - tailwind-theme.css  ONLY in the Tailwind v4 entry CSS, AFTER
+                         `@import "tailwindcss";`. It maps Tailwind names
+                         (bg-surface, text-ink, font-display ...) to the
+                         --tp-* variables below, so dark mode flows through.
+                         It imports nothing and defines no values itself.
+
+   FONTS (Google Fonts, load in <head>, preconnect first):
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Kalam:wght@400;700&family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+   (In production self-host the same files with font-display: swap.)
+
+   COLOUR RULES IN ONE BREATH
+   Ink + Mint are the identity. Marigold is the single warm accent, used on
+   festival moments and one highlight per screen, never on every control.
+   Rakhi red means "wrong / urgent" and festival ribbon, nothing else.
+   Raw palette (--tp-c-*) never changes with theme. Semantic tokens
+   (--tp-bg, --tp-text ...) swap in dark mode. Components use SEMANTIC only.
+   ========================================================================= */
+
+:root {
+  color-scheme: light;
+
+  /* ---- Raw palette (theme-independent) ---------------------------------- */
+  --tp-c-ink:          #14191C;  /* logo black, warmed a touch; never #000 */
+  --tp-c-mint:         #62D2B5;  /* logo mint */
+  --tp-c-mint-hover:   #8BE0CB;
+  --tp-c-mint-soft:    #D3F1E8;
+  --tp-c-pine:         #0D6A5A;  /* mint made text-safe on light surfaces */
+  --tp-c-pine-deep:    #0A5446;
+  --tp-c-petal:        #FDF5F1;  /* page background, garland-pink tinted */
+  --tp-c-tissue:       #FFFBF9;  /* raised surfaces: cards, inputs, sheets */
+  --tp-c-kraft:        #DDBF98;  /* wrapping paper. Fill only, ink text only */
+  --tp-c-kraft-soft:   #F2E4D2;  /* kraft band behind long reading */
+  --tp-c-cocoa:        #4B2E24;  /* chocolate brown: secondary headings */
+  --tp-c-cocoa-muted:  #6A4D42;  /* muted body text */
+  --tp-c-marigold:     #F4A51C;  /* festival accent, FILL only */
+  --tp-c-marigold-ink: #8A5200;  /* marigold made text-safe on light */
+  --tp-c-marigold-soft:#FBE3AE;
+  --tp-c-rakhi:        #C42A3C;  /* error text on petal/tissue, ribbon red */
+  --tp-c-rakhi-deep:   #A31F30;  /* error text on rakhi-soft */
+  --tp-c-rakhi-soft:   #FADDDF;
+  --tp-c-navy:         #1C2B4B;  /* card-stock navy: deep sections */
+  --tp-c-night:        #0E1315;  /* dark-mode page */
+  --tp-c-night-raised: #171E21;
+  --tp-c-navy-raised:  #1E2C4D;
+  --tp-c-moon:         #F4EDE8;  /* dark-mode text, warm off-white */
+  --tp-c-moon-muted:   #B9ADA6;
+  --tp-c-rakhi-light:  #FF8F9B;  /* error text on dark */
+  /* v1.1 bright direction (2026-10-08): the site is light-only and leads with mint, sun and coral. */
+  --tp-c-paper:        #FFFDF8;  /* page: bright warm white */
+  --tp-c-sun:          #FFD23F;  /* sunshine yellow: highlights, stars, stickers (fill) */
+  --tp-c-sun-soft:     #FFF2C2;  /* yellow reading band */
+  --tp-c-coral:        #FF6B81;  /* playful pink-red: stamps, stripes (fill, ink text only) */
+  --tp-c-blush:        #FFE1E7;  /* pink band */
+
+  /* ---- Semantic colour (light) ------------------------------------------ */
+  --tp-bg:             var(--tp-c-paper);
+  --tp-bg-raised:      #FFFFFF;
+  --tp-bg-band:        var(--tp-c-sun-soft);
+  --tp-bg-blush:       var(--tp-c-blush);
+  --tp-bg-mint:        var(--tp-c-mint);
+  --tp-bg-deep:        var(--tp-c-ink);         /* text on it: --tp-text-on-deep */
+  --tp-bg-wrap:        var(--tp-c-kraft);       /* decorative paper, ink text */
+  --tp-text:           var(--tp-c-ink);
+  --tp-text-muted:     var(--tp-c-cocoa-muted);
+  --tp-text-heading-2: var(--tp-c-cocoa);
+  --tp-text-brand:     var(--tp-c-pine);
+  --tp-text-accent:    var(--tp-c-marigold-ink);
+  --tp-text-danger:    var(--tp-c-rakhi);
+  --tp-text-on-deep:   var(--tp-c-paper);
+  --tp-brand-fill:     var(--tp-c-mint);
+  --tp-accent-fill:    var(--tp-c-sun);
+  --tp-text-on-accent: var(--tp-c-ink);
+  --tp-danger-fill:    var(--tp-c-rakhi);
+  --tp-text-on-danger: var(--tp-c-tissue);
+  --tp-danger-soft:    var(--tp-c-rakhi-soft);
+  --tp-text-danger-soft: var(--tp-c-rakhi-deep);
+  --tp-success-soft:   var(--tp-c-mint-soft);
+  --tp-text-success:   var(--tp-c-pine);
+  --tp-action-bg:      var(--tp-c-ink);         /* primary button */
+  --tp-action-text:    var(--tp-c-petal);
+  --tp-action-bg-hover:var(--tp-c-pine);
+  --tp-border:         rgb(75 46 36 / 0.16);    /* decorative dividers */
+  --tp-border-field:   #8A6F63;                 /* input edge, 4.3:1 on petal, 4.5:1 on tissue */
+  --tp-focus:          var(--tp-c-pine);
+  --tp-twine:          var(--tp-c-cocoa-muted); /* dashed "twine" rule */
+  --tp-shadow-tint:    75 46 36;                /* cocoa, used in shadows */
+
+  /* ---- Font families ------------------------------------------------------
+     Display: Young Serif (Latin). Devanagari headings fall through to Mukta
+     800 automatically. Text/UI: Mukta (Latin + Devanagari drawn together).
+     Note: Kalam, ONLY for a gift-message moment (card preview, sign-off). */
+  --tp-font-display: "Young Serif", "Mukta", ui-sans-serif, system-ui, sans-serif;
+  --tp-font-text:    "Mukta", "Noto Sans Devanagari", ui-sans-serif, system-ui, sans-serif;
+  --tp-font-note:    "Kalam", "Mukta", cursive;
+
+  /* ---- Type scale (fluid; base 17px because Mukta runs small) ----------- */
+  --tp-text-xs:   0.8125rem;                                  /* 13 */
+  --tp-text-sm:   0.9375rem;                                  /* 15 */
+  --tp-text-base: 1.0625rem;                                  /* 17 */
+  --tp-text-lg:   1.25rem;                                    /* 20 */
+  --tp-text-xl:   clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);   /* 22-28 */
+  --tp-text-2xl:  clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);     /* 28-40 */
+  --tp-text-3xl:  clamp(2.25rem, 1.7rem + 2.8vw, 3.75rem);    /* 36-60 */
+  --tp-text-display: clamp(2.75rem, 1.6rem + 5.6vw, 5.5rem);  /* 44-88 */
+  --tp-leading-tight:  1.04;   /* display, Latin only */
+  --tp-leading-snug:   1.2;    /* headings */
+  --tp-leading-body:   1.6;    /* Latin body */
+  --tp-leading-deva:   1.75;   /* ANY Devanagari: matras need room, never lower than 1.65 */
+  --tp-tracking-display: -0.02em;
+  --tp-tracking-caps:    0.08em;
+
+  /* ---- Spacing (4px base) ------------------------------------------------ */
+  --tp-space-1: 0.25rem;  --tp-space-2: 0.5rem;   --tp-space-3: 0.75rem;
+  --tp-space-4: 1rem;     --tp-space-5: 1.5rem;   --tp-space-6: 2rem;
+  --tp-space-7: 3rem;     --tp-space-8: 4rem;     --tp-space-9: 6rem;
+  --tp-space-10: 8rem;
+  --tp-gutter: 1rem;                          /* 16px on phones */
+  --tp-measure: 62ch;                         /* reading width */
+  --tp-page-max: 80rem;
+
+  /* ---- Radius: ONE rule -----------------------------------------------------
+     Pill = things you press (buttons, badges, chips).
+     Field = things you type into (inputs, selects, textareas).
+     Frame = things that hold a picture (photos, collage previews, panels).
+     Never mix: no square buttons, no pill photos, no 4px anything. */
+  --tp-radius-field: 12px;
+  --tp-radius-frame: 20px;
+  --tp-radius-pill:  999px;
+
+  /* ---- Shadow (cocoa-tinted, never pure black) --------------------------- */
+  --tp-shadow-1: 0 1px 2px rgb(var(--tp-shadow-tint) / 0.10), 0 2px 6px rgb(var(--tp-shadow-tint) / 0.06);
+  --tp-shadow-2: 0 2px 4px rgb(var(--tp-shadow-tint) / 0.08), 0 12px 28px rgb(var(--tp-shadow-tint) / 0.14);
+  --tp-shadow-focus: 0 0 0 3px var(--tp-bg), 0 0 0 5px var(--tp-focus);
+
+  /* ---- Motion ------------------------------------------------------------ */
+  --tp-ease-out:    cubic-bezier(0.16, 1, 0.3, 1);    /* arrivals, reveals */
+  --tp-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);   /* things that move across */
+  --tp-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);/* tiny confirmations only */
+  --tp-dur-fast:   150ms;   /* hover, press */
+  --tp-dur-base:   250ms;   /* toggles, focus, fields */
+  --tp-dur-slow:   500ms;   /* reveals */
+  --tp-dur-slower: 800ms;   /* hero entrance, one per page */
+  --tp-stagger:    70ms;
+}
+
+/* ---- Dark: follows the system unless the site forces light ------------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --tp-bg:             var(--tp-c-night);
+    --tp-bg-raised:      var(--tp-c-night-raised);
+    --tp-bg-band:        #131A1C;
+    --tp-bg-deep:        var(--tp-c-navy-raised);
+    --tp-bg-wrap:        var(--tp-c-kraft);
+    --tp-text:           var(--tp-c-moon);
+    --tp-text-muted:     var(--tp-c-moon-muted);
+    --tp-text-heading-2: var(--tp-c-kraft);
+    --tp-text-brand:     var(--tp-c-mint);
+    --tp-text-accent:    var(--tp-c-marigold);
+    --tp-text-danger:    var(--tp-c-rakhi-light);
+    --tp-text-on-deep:   var(--tp-c-moon);
+    --tp-danger-soft:    #3A1B20;
+    --tp-text-danger-soft: var(--tp-c-rakhi-light);
+    --tp-success-soft:   #12332C;
+    --tp-text-success:   var(--tp-c-mint);
+    --tp-action-bg:      var(--tp-c-mint);
+    --tp-action-text:    var(--tp-c-ink);
+    --tp-action-bg-hover:var(--tp-c-mint-hover);
+    --tp-border:         rgb(244 237 232 / 0.14);
+    --tp-border-field:   #7F8F8A;
+    --tp-focus:          var(--tp-c-mint);
+    --tp-twine:          var(--tp-c-moon-muted);
+    --tp-shadow-tint:    0 0 0;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --tp-bg:             var(--tp-c-night);
+  --tp-bg-raised:      var(--tp-c-night-raised);
+  --tp-bg-band:        #131A1C;
+  --tp-bg-deep:        var(--tp-c-navy-raised);
+  --tp-bg-wrap:        var(--tp-c-kraft);
+  --tp-text:           var(--tp-c-moon);
+  --tp-text-muted:     var(--tp-c-moon-muted);
+  --tp-text-heading-2: var(--tp-c-kraft);
+  --tp-text-brand:     var(--tp-c-mint);
+  --tp-text-accent:    var(--tp-c-marigold);
+  --tp-text-danger:    var(--tp-c-rakhi-light);
+  --tp-text-on-deep:   var(--tp-c-moon);
+  --tp-danger-soft:    #3A1B20;
+  --tp-text-danger-soft: var(--tp-c-rakhi-light);
+  --tp-success-soft:   #12332C;
+  --tp-text-success:   var(--tp-c-mint);
+  --tp-action-bg:      var(--tp-c-mint);
+  --tp-action-text:    var(--tp-c-ink);
+  --tp-action-bg-hover:var(--tp-c-mint-hover);
+  --tp-border:         rgb(244 237 232 / 0.14);
+  --tp-border-field:   #7F8F8A;
+  --tp-focus:          var(--tp-c-mint);
+  --tp-twine:          var(--tp-c-moon-muted);
+  --tp-shadow-tint:    0 0 0;
+}
+
+/* ---- Reduced motion: collapse every duration, keep the end state ------- */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --tp-dur-fast: 0.01ms; --tp-dur-base: 0.01ms;
+    --tp-dur-slow: 0.01ms; --tp-dur-slower: 0.01ms;
+    --tp-stagger: 0ms;
+  }
+}
+
+/* ---- Devanagari never gets squashed ------------------------------------ */
+:lang(ne), :lang(hi), [lang="ne"] { line-height: var(--tp-leading-deva); letter-spacing: 0; }

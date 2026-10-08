@@ -1,0 +1,10 @@
+assets/instagram/raw/
+node_modules/
+.env
+dist/
+.output/
+
+.playwright-mcp/
+.claude/
+.tanstack/
+*.log

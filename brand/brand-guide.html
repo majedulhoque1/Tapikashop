@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tapika Brand Guide</title>
+<meta name="description" content="Brand guideline for Tapika: colour, type, logo, voice, photography and components.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Kalam:wght@400;700&family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Tokens: same values as brand/tokens.css, inlined so this page is self-contained. */
+:root {
+  color-scheme: light;
+  --c-ink:#14191C; --c-mint:#62D2B5; --c-mint-hover:#8BE0CB; --c-mint-soft:#D3F1E8; --c-pine:#0D6A5A;
+  --c-petal:#FDF5F1; --c-tissue:#FFFBF9; --c-kraft:#DDBF98; --c-kraft-soft:#F2E4D2;
+  --c-cocoa:#4B2E24; --c-cocoa-muted:#6A4D42; --c-marigold:#F4A51C; --c-marigold-ink:#8A5200; --c-marigold-soft:#FBE3AE;
+  --c-rakhi:#C42A3C; --c-rakhi-deep:#A31F30; --c-rakhi-soft:#FADDDF; --c-navy:#1C2B4B;
+  --c-night:#0E1315; --c-night-raised:#171E21; --c-navy-raised:#1E2C4D; --c-moon:#F4EDE8; --c-moon-muted:#B9ADA6; --c-rakhi-light:#FF8F9B;
+
+  --bg:var(--c-petal); --bg-raised:var(--c-tissue); --bg-band:var(--c-kraft-soft); --bg-deep:var(--c-navy);
+  --text:var(--c-ink); --text-muted:var(--c-cocoa-muted); --text-h2:var(--c-cocoa); --text-brand:var(--c-pine);
+  --text-accent:var(--c-marigold-ink); --text-danger:var(--c-rakhi); --text-on-deep:var(--c-petal);
+  --danger-soft:var(--c-rakhi-soft); --text-danger-soft:var(--c-rakhi-deep); --success-soft:var(--c-mint-soft); --text-success:var(--c-pine);
+  --action-bg:var(--c-ink); --action-text:var(--c-petal); --action-hover:var(--c-pine);
+  --border:rgb(75 46 36 / .16); --border-field:#8A6F63; --focus:var(--c-pine); --twine:var(--c-cocoa-muted);
+  --shadow-tint:75 46 36;
+
+  --font-display:"Young Serif","Mukta",ui-sans-serif,system-ui,sans-serif;
+  --font-text:"Mukta","Noto Sans Devanagari",ui-sans-serif,system-ui,sans-serif;
+  --font-note:"Kalam","Mukta",cursive;
+
+  --t-xs:.8125rem; --t-sm:.9375rem; --t-base:1.0625rem; --t-lg:1.25rem;
+  --t-xl:clamp(1.375rem,1.2rem + .8vw,1.75rem); --t-2xl:clamp(1.75rem,1.4rem + 1.6vw,2.5rem);
+  --t-3xl:clamp(2.25rem,1.7rem + 2.8vw,3.75rem); --t-display:clamp(2.75rem,1.6rem + 4.6vw,4.75rem);
+
+  --r-field:12px; --r-frame:20px; --r-pill:999px;
+  --shadow-1:0 1px 2px rgb(var(--shadow-tint) / .10),0 2px 6px rgb(var(--shadow-tint) / .06);
+  --shadow-2:0 2px 4px rgb(var(--shadow-tint) / .08),0 12px 28px rgb(var(--shadow-tint) / .14);
+  --ease-out:cubic-bezier(.16,1,.3,1); --ease-in-out:cubic-bezier(.65,0,.35,1); --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --d-fast:150ms; --d-base:250ms; --d-slow:500ms; --d-slower:800ms; --stagger:70ms;
+  --gutter:clamp(1rem,4vw,3rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme:dark;
+    --bg:var(--c-night); --bg-raised:var(--c-night-raised); --bg-band:#131A1C; --bg-deep:var(--c-navy-raised);
+    --text:var(--c-moon); --text-muted:var(--c-moon-muted); --text-h2:var(--c-kraft); --text-brand:var(--c-mint);
+    --text-accent:var(--c-marigold); --text-danger:var(--c-rakhi-light); --text-on-deep:var(--c-moon);
+    --danger-soft:#3A1B20; --text-danger-soft:var(--c-rakhi-light); --success-soft:#12332C; --text-success:var(--c-mint);
+    --action-bg:var(--c-mint); --action-text:var(--c-ink); --action-hover:var(--c-mint-hover);
+    --border:rgb(244 237 232 / .14); --border-field:#7F8F8A; --focus:var(--c-mint); --twine:var(--c-moon-muted);
+    --shadow-tint:0 0 0;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme:dark;
+  --bg:var(--c-night); --bg-raised:var(--c-night-raised); --bg-band:#131A1C; --bg-deep:var(--c-navy-raised);
+  --text:var(--c-moon); --text-muted:var(--c-moon-muted); --text-h2:var(--c-kraft); --text-brand:var(--c-mint);
+  --text-accent:var(--c-marigold); --text-danger:var(--c-rakhi-light); --text-on-deep:var(--c-moon);
+  --danger-soft:#3A1B20; --text-danger-soft:var(--c-rakhi-light); --success-soft:#12332C; --text-success:var(--c-mint);
+  --action-bg:var(--c-mint); --action-text:var(--c-ink); --action-hover:var(--c-mint-hover);
+  --border:rgb(244 237 232 / .14); --border-field:#7F8F8A; --focus:var(--c-mint); --twine:var(--c-moon-muted);
+  --shadow-tint:0 0 0;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-text);font-size:var(--t-base);line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-wrap:break-word;min-width:0}
+:lang(ne){line-height:1.75;letter-spacing:0}
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+img,svg{display:block;max-width:100%}
+a{color:var(--text-brand);text-underline-offset:.2em;text-decoration-thickness:1.5px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
+.ic{width:1.5rem;height:1.5rem;flex:none;fill:currentColor}
+.ic-sm{width:1.125rem;height:1.125rem}
+.wrap{width:100%;max-width:80rem;margin-inline:auto;padding-inline:var(--gutter)}
+.sec{padding-block:clamp(3.5rem,8vw,6.5rem)}
+.sec--band{background:var(--bg-band)}
+.sec--deep{background:var(--bg-deep);color:var(--text-on-deep)}
+h1,h2,h3{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;text-wrap:balance}
+h2{font-size:var(--t-3xl);line-height:1.05;margin-bottom:1rem}
+h3{font-size:var(--t-xl);line-height:1.2;font-weight:700;letter-spacing:-.01em;margin-bottom:.5rem}
+.lead{font-size:var(--t-lg);max-width:46ch;color:var(--text-muted)}
+.sec--deep .lead,.sec--deep .muted{color:var(--text-on-deep)}
+.muted{color:var(--text-muted)}
+.small{font-size:var(--t-sm)}
+.eyebrow{font-size:var(--t-xs);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-brand)}
+.twine{border:0;border-top:2px dashed var(--twine);opacity:.55;margin:0}
+code,.hex{font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:.86em}
+
+/* top bar */
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4rem;padding-block:.5rem}
+.bar .lockup{width:7.5rem;color:var(--text)}
+.bar nav{display:none;gap:1.5rem;font-weight:600;font-size:var(--t-sm)}
+.bar nav a{color:var(--text);text-decoration:none}
+.bar nav a:hover{text-decoration:underline;text-decoration-color:var(--c-mint);text-decoration-thickness:3px}
+@media(min-width:900px){.bar nav{display:flex}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3rem;padding:0 1.5rem;border-radius:var(--r-pill);
+  border:1.5px solid transparent;font:700 var(--t-base)/1 var(--font-text);cursor:pointer;text-decoration:none;white-space:nowrap;
+  transition:transform var(--d-fast) var(--ease-out),background-color var(--d-base) var(--ease-out),box-shadow var(--d-base) var(--ease-out)}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
+.btn:active{transform:translateY(1px) scale(.98);box-shadow:none}
+.btn--primary{background:var(--action-bg);color:var(--action-text)}
+.btn--primary:hover{background:var(--action-hover);color:var(--c-petal)}
+:root[data-theme="dark"] .btn--primary:hover{color:var(--c-ink)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn--primary:hover{color:var(--c-ink)}}
+.btn--quiet{background:transparent;color:var(--text);border-color:var(--text)}
+.btn--quiet:hover{background:var(--text);color:var(--bg)}
+.btn--festival{background:var(--c-marigold);color:var(--c-ink)}
+.btn--festival:hover{background:#FFB93D}
+.btn[disabled]{opacity:1;background:transparent;color:var(--text-muted);border:1.5px dashed var(--border-field);cursor:not-allowed;transform:none;box-shadow:none}
+
+/* HERO */
+.hero{padding-block:clamp(1.5rem,4vw,3rem) clamp(3rem,7vw,5.5rem)}
+.hero-grid{display:grid;gap:2.5rem;align-items:center}
+@media(min-width:960px){.hero-grid{grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:3rem}}
+.hero h1{font-size:var(--t-display);line-height:1.02;margin:.9rem 0 1.1rem;max-width:14ch}
+.hero .sub{font-size:var(--t-lg);max-width:34ch;color:var(--text-muted)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+.avatar{position:relative;width:min(100%,25rem);aspect-ratio:1;border-radius:50%;background:var(--c-ink);display:grid;place-items:center;
+  margin-inline:auto;color:var(--c-mint);box-shadow:var(--shadow-2)}
+.avatar svg{width:76%;height:auto}
+.hero-twine{margin-top:2.25rem;width:100%;height:14px;color:var(--twine)}
+.hero-twine path{stroke:currentColor;stroke-width:2;stroke-dasharray:7 7;fill:none;stroke-linecap:round}
+
+/* promise */
+.promise-lines{display:grid;gap:clamp(1.25rem,3vw,2rem);margin-top:2.5rem}
+.promise-line{display:flex;align-items:center;gap:1rem;font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;line-height:1.05;font-size:var(--t-3xl)}
+.promise-line .ic{width:clamp(2rem,5vw,3.25rem);height:clamp(2rem,5vw,3.25rem);color:var(--text-brand);stroke:none}
+@media(min-width:900px){.promise-line:nth-child(2){margin-left:12%}.promise-line:nth-child(3){margin-left:24%}}
+.positioning{display:grid;gap:1.5rem;margin-top:3rem;padding-top:2rem;border-top:2px dashed var(--twine)}
+@media(min-width:900px){.positioning{grid-template-columns:1fr 1fr;gap:3rem}}
+.positioning p{max-width:52ch}
+
+/* palette */
+.pal-group{margin-top:2.5rem}
+.pal-group>h3{margin-bottom:1rem}
+.sw-grid{display:grid;gap:.75rem;grid-template-columns:repeat(2,minmax(0,1fr))}
+.sw{background:var(--c);color:var(--t);border-radius:var(--r-frame);padding:1rem;min-height:9.5rem;display:flex;flex-direction:column;justify-content:space-between;gap:1rem;
+  border:1px solid var(--border)}
+.sw b{font-family:var(--font-display);font-size:var(--t-lg);display:block;line-height:1.1}
+.sw .hex{display:block;margin-top:.15rem}
+.sw p{font-size:var(--t-sm);line-height:1.35}
+.sw small{display:block;font-size:var(--t-xs);line-height:1.35;margin-top:.35rem;font-weight:600}
+.sw--big{min-height:15rem}
+.sw--wide{grid-column:1/-1}
+@media(min-width:760px){
+  .sw-grid--id{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sw-grid--surf{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .sw-grid--sig{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .sw-grid--dark{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .sw--wide{grid-column:auto}
+}
+.rules{display:grid;gap:1rem;margin-top:1rem}
+@media(min-width:900px){.rules{grid-template-columns:1.2fr 1fr 1fr}}
+.surf{border-radius:var(--r-frame);padding:1.25rem;background:var(--c);color:var(--t);border:1px solid var(--border)}
+.surf h4{font-family:var(--font-display);font-size:var(--t-lg);margin-bottom:.75rem;font-weight:800}
+.surf ul{display:grid;gap:.35rem}
+.surf li{display:flex;justify-content:space-between;gap:1rem;font-size:var(--t-base);font-weight:600}
+.surf li span:last-child{font-family:ui-monospace,Consolas,monospace;font-size:.82rem;font-weight:500;white-space:nowrap;align-self:center}
+.surf .never{margin-top:.9rem;padding-top:.7rem;border-top:1px dashed currentColor;font-size:var(--t-sm);font-weight:500}
+.surf .never b{font-weight:700}
+.surf .nv{opacity:1;text-decoration:line-through;text-decoration-thickness:1.5px}
+
+/* type */
+.type-grid{display:grid;gap:2.5rem;margin-top:2.5rem}
+@media(min-width:960px){.type-grid{grid-template-columns:1.1fr .9fr;gap:4rem}}
+.spec-big{font-family:var(--font-display);font-weight:800;font-size:clamp(3rem,2rem + 6vw,6.5rem);line-height:1;letter-spacing:-.03em}
+.spec-deva{font-family:var(--font-display);font-weight:800;font-size:clamp(2.75rem,2rem + 4.5vw,5.25rem);line-height:1.5;color:var(--text-brand)}
+.spec-meta{margin-top:.5rem;font-size:var(--t-sm);color:var(--text-muted);max-width:48ch}
+.scale{display:grid;gap:0}
+.scale li{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:1rem;align-items:baseline;padding-block:.75rem}
+.scale li+li{border-top:1px dashed var(--border-field)}
+.scale .nm{font-size:var(--t-xs);font-weight:700;color:var(--text-muted);line-height:1.3}
+.scale .sm{font-family:var(--font-display);font-weight:700;letter-spacing:-.01em;line-height:1.15;overflow-wrap:anywhere}
+.note{font-family:var(--font-note);font-size:var(--t-xl);line-height:1.5;background:var(--bg-raised);border:1.5px dashed var(--twine);border-radius:var(--r-frame);padding:1.25rem 1.5rem;margin-top:1.5rem;max-width:28rem;transform:rotate(-1deg)}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem 1.25rem;margin-top:1.25rem}
+.chips span{font-family:var(--font-display);font-weight:800;font-size:var(--t-2xl);line-height:1.5}
+
+/* tokens: spacing radius motion */
+.tok-grid{display:grid;gap:3rem;margin-top:2.5rem}
+@media(min-width:960px){.tok-grid{grid-template-columns:1fr 1fr;gap:4rem}}
+.space-row{display:grid;grid-template-columns:3.75rem minmax(0,1fr);gap:1rem;align-items:center;margin-bottom:.5rem;font-size:var(--t-sm)}
+.space-bar{height:.75rem;background:var(--c-mint);border-radius:var(--r-pill);min-width:4px}
+.radii{display:flex;flex-wrap:wrap;gap:1.25rem;align-items:flex-end;margin-top:.5rem}
+.radii figure{display:grid;gap:.5rem;font-size:var(--t-sm)}
+.r-pill{width:9rem;height:3rem;border-radius:var(--r-pill);background:var(--c-ink)}
+.r-field{width:9rem;height:3rem;border-radius:var(--r-field);border:1.5px solid var(--border-field);background:var(--bg-raised)}
+.r-frame{width:9rem;height:6.5rem;border-radius:var(--r-frame);background:var(--c-kraft)}
+.motion{margin-top:.5rem;display:grid;gap:.9rem;padding:1rem;border:1.5px dashed var(--twine);border-radius:var(--r-frame);cursor:pointer}
+.track{position:relative;height:2.25rem;border-bottom:1.5px solid var(--border-field);display:flex;align-items:center;font-size:var(--t-xs);font-weight:700;gap:.75rem}
+.track .lab{position:relative;z-index:1;background:var(--bg);padding-right:.5rem}
+.track i{position:absolute;left:0;bottom:-.55rem;width:1.1rem;height:1.1rem;border-radius:50%;background:var(--c-marigold);transition:transform 900ms var(--ease-out)}
+.track.in-out i{transition-timing-function:var(--ease-in-out)}
+.track.def i{transition-timing-function:ease}
+.motion:hover .track i,.motion:focus-visible .track i,.motion.go .track i{transform:translateX(calc(var(--run,16rem)))}
+.motion{--run:min(16rem,calc(100vw - 8.5rem))}
+.dur{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.dur span{font-size:var(--t-xs);font-weight:700;padding:.3rem .8rem;border-radius:var(--r-pill);background:var(--bg-band);color:var(--text)}
+
+/* components */
+.comp{display:grid;gap:3rem;margin-top:2.5rem}
+@media(min-width:960px){.comp{grid-template-columns:1fr 1fr;gap:4rem}}
+.row{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+.stack{display:grid;gap:1.75rem}
+.field{display:grid;gap:.4rem;max-width:26rem}
+.field label{font-weight:700;font-size:var(--t-sm)}
+.field input,.field textarea{font:500 var(--t-base)/1.4 var(--font-text);color:var(--text);background:var(--bg-raised);
+  border:1.5px solid var(--border-field);border-radius:var(--r-field);padding:.75rem 1rem;min-height:3rem;width:100%;
+  transition:border-color var(--d-base) var(--ease-out),box-shadow var(--d-base) var(--ease-out)}
+.field input::placeholder{color:var(--text-muted);opacity:1}
+.field input:focus{outline:none;border-color:var(--focus);box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--focus)}
+.field .help{font-size:var(--t-sm);color:var(--text-muted)}
+.field.err input{border-color:var(--text-danger);border-width:2px}
+.field .msg{display:flex;gap:.4rem;align-items:flex-start;font-size:var(--t-sm);font-weight:600;color:var(--text-danger)}
+.badge{display:inline-flex;align-items:center;gap:.4rem;min-height:1.75rem;padding:0 .8rem;border-radius:var(--r-pill);font-size:var(--t-xs);font-weight:700;letter-spacing:.02em}
+.b-sig{background:var(--c-mint-soft);color:var(--c-ink)}
+.b-fest{background:var(--c-marigold-soft);color:var(--c-marigold-ink)}
+.b-wrap{background:var(--c-kraft-soft);color:var(--c-ink)}
+.b-out{border:1.5px solid var(--text);color:var(--text)}
+.b-bad{background:var(--c-rakhi-soft);color:var(--c-rakhi-deep)}
+.banner{display:flex;gap:.75rem;align-items:flex-start;padding:1rem 1.25rem;border-radius:var(--r-frame);font-weight:600;font-size:var(--t-base);line-height:1.45}
+.banner .ic{margin-top:.1rem}
+.banner--ok{background:var(--success-soft);color:var(--text-success)}
+.banner--bad{background:var(--danger-soft);color:var(--text-danger-soft)}
+.banner p{color:var(--text)}
+.banner b{display:block}
+.empty{border:2px dashed var(--twine);border-radius:var(--r-frame);padding:2rem 1.5rem;display:grid;gap:1rem;justify-items:start}
+.empty svg.mk{width:3.25rem;height:3.25rem;color:var(--text-brand)}
+
+/* logo */
+.logo-panels{display:grid;gap:.75rem;margin-top:2.5rem}
+@media(min-width:760px){.logo-panels{grid-template-columns:repeat(2,minmax(0,1fr))}.logo-panels .lp--wide{grid-column:1/-1}}
+.lp{border-radius:var(--r-frame);padding:clamp(1.5rem,5vw,3.5rem) clamp(1rem,4vw,2.5rem);display:grid;place-items:center;background:var(--c);color:var(--t);border:1px solid var(--border)}
+.lp svg{width:min(100%,22rem);height:auto}
+.lp--wide svg{width:min(100%,32rem)}
+.lp small{margin-top:1rem;font-size:var(--t-xs);font-weight:600;text-align:center}
+.flag{display:flex;gap:1rem;align-items:flex-start;margin-top:2rem;padding:1.25rem 1.5rem;border-radius:var(--r-frame);background:var(--c-marigold-soft);color:#2B1D00;font-weight:600;line-height:1.5}
+:root[data-theme="dark"] .flag{background:var(--c-marigold-soft)}
+.flag .ic{color:var(--c-marigold-ink);width:1.75rem;height:1.75rem;margin-top:.1rem}
+.logo-rules{display:grid;gap:2.5rem;margin-top:3rem}
+@media(min-width:960px){.logo-rules{grid-template-columns:1fr 1fr;gap:4rem}}
+.clear-demo{display:inline-block;position:relative;padding:var(--x,26px);border:2px dashed var(--text-brand);border-radius:var(--r-field);color:var(--text);max-width:100%}
+.clear-demo svg{width:min(18rem,64vw);height:auto}
+.clear-demo .x{position:absolute;font:700 11px/1 var(--font-text);color:var(--text-brand)}
+.facts{display:grid;gap:.75rem;margin-top:1rem}
+.facts li{display:flex;gap:.75rem;align-items:flex-start}
+.facts .ic{color:var(--text-brand);margin-top:.15rem}
+.sizes{display:flex;gap:1.5rem;align-items:flex-end;flex-wrap:wrap;margin-top:1.25rem}
+.sizes div{display:grid;gap:.4rem;justify-items:start;font-size:var(--t-xs);font-weight:600;color:var(--text-muted)}
+.dd{display:grid;gap:.75rem;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:1rem}
+@media(min-width:760px){.dd{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.dd figure{display:grid;gap:.5rem;font-size:var(--t-sm);font-weight:600;line-height:1.35}
+.dd .tile{border-radius:var(--r-frame);padding:1.25rem .75rem;min-height:6.5rem;display:grid;place-items:center;background:var(--bg-raised);border:1px solid var(--border);overflow:hidden}
+.dd .tile svg{width:100%;max-width:10rem;height:auto;color:var(--text)}
+.dd figcaption{display:flex;gap:.4rem;align-items:flex-start}
+.dd .ok figcaption .ic{color:var(--text-success)}
+.dd .no figcaption .ic{color:var(--text-danger)}
+
+/* photo */
+.photo{display:grid;gap:3rem;margin-top:2.5rem}
+@media(min-width:960px){.photo{grid-template-columns:.9fr 1.1fr;gap:4rem}}
+.consent{padding:1.5rem;border-radius:var(--r-frame);background:var(--bg-deep);color:var(--text-on-deep);display:grid;gap:.75rem}
+.consent h3{margin:0;color:var(--text-on-deep)}
+.consent p{max-width:46ch}
+.shots{display:grid;gap:1rem}
+.shot{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:1rem;align-items:center}
+.frm{border:2px solid var(--c);border-radius:10px;background:color-mix(in srgb,var(--c) 22%,transparent);display:grid;place-items:center;font-size:var(--t-xs);font-weight:800;color:var(--text)}
+.frm.r45{width:4.25rem;aspect-ratio:4/5}
+.frm.r11{width:4.5rem;aspect-ratio:1}
+.frm.r169{width:5.5rem;aspect-ratio:16/9}
+.shot h3{font-size:var(--t-lg);margin-bottom:.15rem}
+.shot p{font-size:var(--t-sm);color:var(--text-muted);max-width:44ch}
+.lists{display:grid;gap:2rem;margin-top:3rem}
+@media(min-width:760px){.lists{grid-template-columns:1fr 1fr}}
+.lists li{display:flex;gap:.7rem;align-items:flex-start;padding-block:.5rem}
+.lists li+li{border-top:1px dashed var(--border-field)}
+.lists .ic{margin-top:.2rem}
+.lists .yes .ic{color:var(--text-success)}
+.lists .nope .ic{color:var(--text-danger)}
+
+/* voice */
+.voice{margin-top:2.5rem;display:grid;gap:0}
+.vrow{display:grid;gap:.6rem;padding-block:1.6rem;border-top:2px dashed color-mix(in srgb,var(--text-on-deep) 40%,transparent)}
+@media(min-width:900px){.vrow{grid-template-columns:11rem minmax(0,1fr);gap:2rem}}
+.vrow dt{font-weight:800;font-family:var(--font-display);font-size:var(--t-lg);color:var(--c-mint)}
+.vrow dd{display:grid;gap:.9rem}
+.vline{font-family:var(--font-display);font-weight:700;font-size:var(--t-xl);line-height:1.25;letter-spacing:-.01em;max-width:36ch}
+.vline.big{font-size:var(--t-2xl);font-weight:800}
+.vline small{display:block;font-family:var(--font-text);font-weight:500;font-size:var(--t-base);margin-top:.3rem;opacity:1;max-width:60ch;letter-spacing:0}
+.vrow .row .btn--quiet{color:var(--c-petal);border-color:var(--c-petal)}
+.vrow .row .btn--quiet:hover{background:var(--c-petal);color:var(--c-navy)}
+.vrow .btn--primary{background:var(--c-mint);color:var(--c-ink)}
+.vrow .btn--primary:hover{background:var(--c-mint-hover);color:var(--c-ink)}
+.nepali{font-family:var(--font-display);font-weight:800;font-size:var(--t-2xl);line-height:1.6}
+
+footer{padding-block:3rem;border-top:2px dashed var(--twine)}
+footer .row{justify-content:space-between}
+footer svg{width:6.5rem;color:var(--text)}
+.toggle{min-height:2.5rem;padding:0 1rem;font-size:var(--t-sm)}
+
+/* motion: entrance + reveals (reduced-motion safe) */
+@media (prefers-reduced-motion: no-preference) {
+  .enter{opacity:0;transform:translateY(18px);animation:enter var(--d-slower) var(--ease-out) forwards;animation-delay:calc(var(--i,0) * var(--stagger))}
+  @keyframes enter{to{opacity:1;transform:none}}
+  .avatar{animation:pop var(--d-slower) var(--ease-out) 150ms both}
+  @keyframes pop{from{opacity:0;transform:scale(.88) rotate(-4deg)}to{opacity:1;transform:none}}
+  .hero-twine{clip-path:inset(0 100% 0 0);animation:draw 1600ms var(--ease-in-out) 500ms forwards}
+  @keyframes draw{to{clip-path:inset(0 0 0 0)}}
+  .avatar .spark{animation:spark 900ms var(--ease-spring) 900ms both}
+  @keyframes spark{from{opacity:0}to{opacity:1}}
+  .js .reveal{opacity:0;transform:translateY(22px);transition:opacity var(--d-slow) var(--ease-out),transform var(--d-slow) var(--ease-out);transition-delay:calc(var(--i,0) * var(--stagger))}
+  .js .reveal.in{opacity:1;transform:none}
+  .promise-line .ic{transition:transform var(--d-slow) var(--ease-spring)}
+  .promise-line:hover .ic{transform:rotate(-8deg) scale(1.12)}
+  .sw{transition:transform var(--d-base) var(--ease-out)}
+  .sw:hover{transform:translateY(-4px)}
+}
+@media (prefers-reduced-motion: reduce){
+  .motion:hover .track i,.motion.go .track i{transform:translateX(var(--run))}
+  .track i{transition:none}
+}
+@media(max-width:380px){.btn{padding:0 1.1rem;font-size:1rem}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="tp-mark" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 25h40a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H12a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3z"/><path d="M14 36v18a3 3 0 0 0 3 3h30a3 3 0 0 0 3-3V36"/><path d="M32 25v32"/><path d="M32 25C26 25 21 22.5 21 18c0-3 2.5-4.5 5-4 3.5.8 6 6.5 6 11z"/><path d="M32 25c6 0 11-2.5 11-7 0-3-2.5-4.5-5-4-3.5.8-6 6.5-6 11z"/><path d="M50 14l3.5-3.5M53 20h4.5M47 8V4"/><path d="M13 13l-3.5-3.5"/></g></symbol>
+<symbol id="tp-word" viewBox="0 0 236 90"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12v36c0 7 4 10 11 10 3 0 5-1 7-3"/><path d="M5 31h24"/><path d="M76 44a14 14 0 1 0-28 0 14 14 0 1 0 28 0z"/><path d="M76 30v22q0 6 7 6"/><path d="M98 30v50"/><path d="M126 44a14 14 0 1 0-28 0 14 14 0 1 0 28 0z"/><path d="M142 30v28"/><path d="M158 10v48"/><path d="M182 30c-8 8-16 13-24 16"/><path d="M165 43c7 3 13 8 19 15"/><path d="M220 44a14 14 0 1 0-28 0 14 14 0 1 0 28 0z"/><path d="M220 30v22q0 6 7 6"/></g><circle cx="142" cy="15" r="4.5" fill="currentColor"/></symbol>
+<symbol id="tp-lockup" viewBox="0 0 316 90"><g transform="translate(0 13)"><g fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 25h40a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H12a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3z"/><path d="M14 36v18a3 3 0 0 0 3 3h30a3 3 0 0 0 3-3V36"/><path d="M32 25v32"/><path d="M32 25C26 25 21 22.5 21 18c0-3 2.5-4.5 5-4 3.5.8 6 6.5 6 11z"/><path d="M32 25c6 0 11-2.5 11-7 0-3-2.5-4.5-5-4-3.5.8-6 6.5-6 11z"/><path d="M50 14l3.5-3.5M53 20h4.5M47 8V4"/><path d="M13 13l-3.5-3.5"/></g></g><g transform="translate(80 0)"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12v36c0 7 4 10 11 10 3 0 5-1 7-3"/><path d="M5 31h24"/><path d="M76 44a14 14 0 1 0-28 0 14 14 0 1 0 28 0z"/><path d="M76 30v22q0 6 7 6"/><path d="M98 30v50"/><path d="M126 44a14 14 0 1 0-28 0 14 14 0 1 0 28 0z"/><path d="M142 30v28"/><path d="M158 10v48"/><path d="M182 30c-8 8-16 13-24 16"/><path d="M165 43c7 3 13 8 19 15"/><path d="M220 44a14 14 0 1 0-28 0 14 14 0 1 0 28 0z"/><path d="M220 30v22q0 6 7 6"/></g><circle cx="142" cy="15" r="4.5" fill="currentColor"/></g></symbol>
+<symbol id="i-gift" viewBox="0 0 256 256"><path d="M216,74H174.74a46.41,46.41,0,0,0,6-4.48,27.56,27.56,0,0,0,9.22-20A30.63,30.63,0,0,0,158.5,18a27.56,27.56,0,0,0-20,9.22A57.1,57.1,0,0,0,128,45.76a57.1,57.1,0,0,0-10.48-18.53A27.56,27.56,0,0,0,97.5,18,30.63,30.63,0,0,0,66,49.51a27.56,27.56,0,0,0,9.22,20,45.74,45.74,0,0,0,6,4.48H40A14,14,0,0,0,26,88v32a14,14,0,0,0,14,14h2v66a14,14,0,0,0,14,14H200a14,14,0,0,0,14-14V134h2a14,14,0,0,0,14-14V88A14,14,0,0,0,216,74ZM135.77,63c2.25-12.12,6.29-21.75,11.69-27.85A15.68,15.68,0,0,1,158.86,30h.55A18.6,18.6,0,0,1,178,49.14a15.68,15.68,0,0,1-5.18,11.4C162.1,70,143.92,72.83,134.34,73.65,134.59,70.76,135,67.08,135.77,63ZM83.45,35.45A18.69,18.69,0,0,1,96.59,30h.55a15.68,15.68,0,0,1,11.4,5.18C118,45.9,120.83,64.08,121.65,73.66c-2.89-.25-6.57-.68-10.61-1.43C98.92,70,89.29,65.94,83.19,60.53A15.64,15.64,0,0,1,78,49.14,18.65,18.65,0,0,1,83.45,35.45ZM38,120V88a2,2,0,0,1,2-2h82v36H40A2,2,0,0,1,38,120Zm16,80V134h68v68H56A2,2,0,0,1,54,200Zm148,0a2,2,0,0,1-2,2H134V134h68Zm16-80a2,2,0,0,1-2,2H134V86h82a2,2,0,0,1,2,2Z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 256 256"><path d="M178,42c-21,0-39.26,9.47-50,25.34C117.26,51.47,99,42,78,42a60.07,60.07,0,0,0-60,60c0,29.2,18.2,59.59,54.1,90.31a334.68,334.68,0,0,0,53.06,37,6,6,0,0,0,5.68,0,334.68,334.68,0,0,0,53.06-37C219.8,161.59,238,131.2,238,102A60.07,60.07,0,0,0,178,42ZM128,217.11C111.59,207.64,30,157.72,30,102A48.05,48.05,0,0,1,78,54c20.28,0,37.31,10.83,44.45,28.27a6,6,0,0,0,11.1,0C140.69,64.83,157.72,54,178,54a48.05,48.05,0,0,1,48,48C226,157.72,144.41,207.64,128,217.11Z"/></symbol>
+<symbol id="i-airplane" viewBox="0 0 256 256"><path d="M183,113.65l30.1-28.32.13-.13A30,30,0,0,0,170.8,42.77l-.13.13L142.35,73,58.05,42.35a6,6,0,0,0-6.29,1.39l-24,24A6,6,0,0,0,28.67,77l65.92,43.94L77.52,138H56a6,6,0,0,0-4.24,1.76l-24,24a6,6,0,0,0,2,9.82l37.62,15,15,37.56,0,.12a6,6,0,0,0,7.81,3.27,5.94,5.94,0,0,0,2.07-1.41l23.91-23.91A6,6,0,0,0,118,200V178.48l17.07-17.07L179,227.33a6,6,0,0,0,9.23.91l24-24a6,6,0,0,0,1.39-6.29Zm1.94,100.93L141,148.66a6,6,0,0,0-4.4-2.64l-.59,0a6,6,0,0,0-4.24,1.76l-24,24A6,6,0,0,0,106,176v21.52L90.2,213.32,77.57,181.77a6,6,0,0,0-3.34-3.35L42.68,165.8,58.49,150H80a6,6,0,0,0,4.25-1.76l24-24a6,6,0,0,0-.92-9.23L41.42,71.06,57.54,54.93,142,85.63a6,6,0,0,0,6.42-1.53l31-32.9A18,18,0,0,1,204.8,76.66l-32.9,31a6,6,0,0,0-1.53,6.42l30.7,84.41Z"/></symbol>
+<symbol id="i-chat" viewBox="0 0 256 256"><path d="M166,112a6,6,0,0,1-6,6H96a6,6,0,0,1,0-12h64A6,6,0,0,1,166,112Zm-6,26H96a6,6,0,0,0,0,12h64a6,6,0,0,0,0-12Zm70-10A102,102,0,0,1,79.31,217.65L44.44,229.27a14,14,0,0,1-17.71-17.71l11.62-34.87A102,102,0,1,1,230,128Zm-12,0A90,90,0,1,0,50.08,173.06a6,6,0,0,1,.5,4.91L38.12,215.35a2,2,0,0,0,2.53,2.53L78,205.42a6.2,6.2,0,0,1,1.9-.31,6.09,6.09,0,0,1,3,.81A90,90,0,0,0,218,128Z"/></symbol>
+<symbol id="i-camera" viewBox="0 0 256 256"><path d="M208,58H179.21L165,36.67A6,6,0,0,0,160,34H96a6,6,0,0,0-5,2.67L76.78,58H48A22,22,0,0,0,26,80V192a22,22,0,0,0,22,22H208a22,22,0,0,0,22-22V80A22,22,0,0,0,208,58Zm10,134a10,10,0,0,1-10,10H48a10,10,0,0,1-10-10V80A10,10,0,0,1,48,70H80a6,6,0,0,0,5-2.67L99.21,46h57.57L171,67.33A6,6,0,0,0,176,70h32a10,10,0,0,1,10,10ZM128,90a42,42,0,1,0,42,42A42,42,0,0,0,128,90Zm0,72a30,30,0,1,1,30-30A30,30,0,0,1,128,162Z"/></symbol>
+<symbol id="i-check" viewBox="0 0 256 256"><path d="M172.24,99.76a6,6,0,0,1,0,8.48l-56,56a6,6,0,0,1-8.48,0l-24-24a6,6,0,0,1,8.48-8.48L112,151.51l51.76-51.75A6,6,0,0,1,172.24,99.76ZM230,128A102,102,0,1,1,128,26,102.12,102.12,0,0,1,230,128Zm-12,0a90,90,0,1,0-90,90A90.1,90.1,0,0,0,218,128Z"/></symbol>
+<symbol id="i-warn" viewBox="0 0 256 256"><path d="M128,26A102,102,0,1,0,230,128,102.12,102.12,0,0,0,128,26Zm0,192a90,90,0,1,1,90-90A90.1,90.1,0,0,1,128,218Zm-6-82V80a6,6,0,0,1,12,0v56a6,6,0,0,1-12,0Zm16,36a10,10,0,1,1-10-10A10,10,0,0,1,138,172Z"/></symbol>
+<symbol id="i-x" viewBox="0 0 256 256"><path d="M204.24,195.76a6,6,0,1,1-8.48,8.48L128,136.49,60.24,204.24a6,6,0,0,1-8.48-8.48L119.51,128,51.76,60.24a6,6,0,0,1,8.48-8.48L128,119.51l67.76-67.75a6,6,0,0,1,8.48,8.48L136.49,128Z"/></symbol>
+<symbol id="i-package" viewBox="0 0 256 256"><path d="M222.72,67.91l-88-48.18a13.9,13.9,0,0,0-13.44,0l-88,48.18A14,14,0,0,0,26,80.18v95.64a14,14,0,0,0,7.28,12.27l88,48.18a13.92,13.92,0,0,0,13.44,0l88-48.18A14,14,0,0,0,230,175.82V80.18A14,14,0,0,0,222.72,67.91ZM127,30.25a2,2,0,0,1,1.92,0L212.51,76,178.57,94.57,94.05,48.31ZM122,223,39,177.57a2,2,0,0,1-1-1.75V86.66l84,46ZM43.49,76,81.56,55.15l84.51,46.26L128,122.24ZM218,175.82a2,2,0,0,1-1,1.75h0L134,223V132.64l36-19.71V152a6,6,0,0,0,12,0V106.37l36-19.71Z"/></symbol>
+<symbol id="i-cal" viewBox="0 0 256 256"><path d="M208,34H182V24a6,6,0,0,0-12,0V34H86V24a6,6,0,0,0-12,0V34H48A14,14,0,0,0,34,48V208a14,14,0,0,0,14,14H208a14,14,0,0,0,14-14V48A14,14,0,0,0,208,34Zm2,174a2,2,0,0,1-2,2H48a2,2,0,0,1-2-2V48a2,2,0,0,1,2-2H74V56a6,6,0,0,0,12,0V46h84V56a6,6,0,0,0,12,0V46h26a2,2,0,0,1,2,2ZM152,90a30,30,0,0,0-24,12,30,30,0,0,0-54,18c0,35.3,49.22,60.32,51.32,61.37a6,6,0,0,0,5.36,0C132.78,180.32,182,155.3,182,120A30,30,0,0,0,152,90Zm-3.67,65.25A138,138,0,0,1,128,169.19a138.82,138.82,0,0,1-20.33-13.94C97.78,147,86,134.15,86,120a18,18,0,0,1,36,0,6,6,0,0,0,12,0,18,18,0,0,1,36,0C170,134.15,158.22,147,148.33,155.25Z"/></symbol>
+<symbol id="i-sparkle" viewBox="0 0 256 256"><path d="M196.89,130.94,144.4,111.6,125.06,59.11a13.92,13.92,0,0,0-26.12,0L79.6,111.6,27.11,130.94a13.92,13.92,0,0,0,0,26.12L79.6,176.4l19.34,52.49a13.92,13.92,0,0,0,26.12,0L144.4,176.4l52.49-19.34a13.92,13.92,0,0,0,0-26.12Zm-4.15,14.86-55.08,20.3a6,6,0,0,0-3.56,3.56l-20.3,55.08a1.92,1.92,0,0,1-3.6,0L89.9,169.66a6,6,0,0,0-3.56-3.56L31.26,145.8a1.92,1.92,0,0,1,0-3.6l55.08-20.3a6,6,0,0,0,3.56-3.56l20.3-55.08a1.92,1.92,0,0,1,3.6,0l20.3,55.08a6,6,0,0,0,3.56,3.56l55.08,20.3a1.92,1.92,0,0,1,0,3.6ZM146,40a6,6,0,0,1,6-6h18V16a6,6,0,0,1,12,0V34h18a6,6,0,0,1,0,12H182V64a6,6,0,0,1-12,0V46H152A6,6,0,0,1,146,40ZM246,88a6,6,0,0,1-6,6H230v10a6,6,0,0,1-12,0V94H208a6,6,0,0,1,0-12h10V72a6,6,0,0,1,12,0V82h10A6,6,0,0,1,246,88Z"/></symbol>
+</defs></svg>
+
+<header class="wrap bar">
+  <a href="#top" aria-label="Tapika brand guide, top"><svg class="lockup" viewBox="0 0 316 90" aria-hidden="true"><use href="#tp-lockup"/></svg></a>
+  <nav aria-label="Guide sections">
+    <a href="#promise">Promise</a><a href="#colour">Colour</a><a href="#type">Type</a><a href="#system">Spacing</a><a href="#components">Components</a><a href="#logo">Logo</a><a href="#photo">Photos</a><a href="#voice">Voice</a>
+  </nav>
+  <button class="btn btn--quiet toggle" id="theme" type="button" aria-pressed="false">Dark mode</button>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow enter" style="--i:0">Brand guide 1.0</p>
+        <h1 class="enter" style="--i:1">Send a little love to Australia.</h1>
+        <p class="sub enter" style="--i:2">Choose a gift. Make it personal. We'll take care of the rest.</p>
+        <div class="hero-cta enter" style="--i:3">
+          <a class="btn btn--primary" href="#colour">See the colours</a>
+          <a class="btn btn--quiet" href="#voice">Read the voice</a>
+        </div>
+      </div>
+      <div class="avatar" role="img" aria-label="Tapika logo: mint lockup on a black circle">
+        <svg viewBox="0 0 316 90" aria-hidden="true"><use href="#tp-lockup"/></svg>
+      </div>
+    </div>
+    <svg class="hero-twine" viewBox="0 0 1200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 7 H1198"/></svg>
+  </div>
+</section>
+
+<!-- PROMISE -->
+<section class="sec sec--band" id="promise">
+  <div class="wrap">
+    <h2 class="reveal">One promise, three beats.</h2>
+    <p class="lead reveal" style="--i:1">Tapika is the hand that is there when you cannot be. Every choice in this guide serves that.</p>
+    <div class="promise-lines">
+      <p class="promise-line reveal"><svg class="ic" aria-hidden="true"><use href="#i-gift"/></svg>Choose a gift.</p>
+      <p class="promise-line reveal" style="--i:1"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg>Make it personal.</p>
+      <p class="promise-line reveal" style="--i:2"><svg class="ic" aria-hidden="true"><use href="#i-airplane"/></svg>We'll take care of the rest.</p>
+    </div>
+    <div class="positioning">
+      <div class="reveal">
+        <h3>Who we are for</h3>
+        <p>A son in Kathmandu choosing something for his didi in Melbourne. A family in Pokhara remembering a birthday in Sydney. People who want to be present at a festival they cannot attend.</p>
+      </div>
+      <div class="reveal" style="--i:1">
+        <h3>What we are</h3>
+        <p>One person who buys, assembles, wraps and hand-delivers in Australia, paid for through eSewa. Small enough to care, organised enough to be trusted. We never pretend to be a warehouse.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLOUR -->
+<section class="sec" id="colour">
+  <div class="wrap">
+    <h2 class="reveal">Colour</h2>
+    <p class="lead reveal">Ink and mint are the identity, lifted from the logo. Everything else comes off the gift table: blush paper, kraft wrap, marigold garlands, rakhi red, card-stock navy.</p>
+
+    <div class="pal-group reveal">
+      <h3>Identity</h3>
+      <div class="sw-grid sw-grid--id">
+        <div class="sw sw--big" style="--c:#14191C;--t:#FDF5F1"><div><b>Ink</b><span class="hex">#14191C</span></div><p>Logo black, text, primary button. Never pure black.</p><small>Petal on Ink 16.5:1</small></div>
+        <div class="sw sw--big" style="--c:#62D2B5;--t:#14191C"><div><b>Mint</b><span class="hex">#62D2B5</span></div><p>Logo mint. Fills, highlights, logo on dark. Never text on light.</p><small>Ink on Mint 9.6:1</small></div>
+      </div>
+    </div>
+
+    <div class="pal-group reveal">
+      <h3>Surfaces</h3>
+      <div class="sw-grid sw-grid--surf">
+        <div class="sw" style="--c:#FDF5F1;--t:#14191C"><div><b>Petal</b><span class="hex">#FDF5F1</span></div><p>Page background.</p><small>Ink 16.5:1</small></div>
+        <div class="sw" style="--c:#FFFBF9;--t:#14191C"><div><b>Tissue</b><span class="hex">#FFFBF9</span></div><p>Raised: inputs, sheets.</p><small>Ink 17.2:1</small></div>
+        <div class="sw" style="--c:#DDBF98;--t:#14191C"><div><b>Kraft</b><span class="hex">#DDBF98</span></div><p>Wrapping paper. Fill only.</p><small>Ink 10.1:1</small></div>
+        <div class="sw" style="--c:#F2E4D2;--t:#14191C"><div><b>Kraft soft</b><span class="hex">#F2E4D2</span></div><p>Reading bands.</p><small>Ink 14.2:1</small></div>
+        <div class="sw sw--wide" style="--c:#1C2B4B;--t:#FDF5F1"><div><b>Navy</b><span class="hex">#1C2B4B</span></div><p>Card-stock deep section.</p><small>Petal 13.0:1</small></div>
+      </div>
+    </div>
+
+    <div class="pal-group reveal">
+      <h3>Text-safe twins and signals</h3>
+      <div class="sw-grid sw-grid--sig">
+        <div class="sw" style="--c:#0D6A5A;--t:#FDF5F1"><div><b>Pine</b><span class="hex">#0D6A5A</span></div><p>Mint's text twin on light: links, brand text, focus ring.</p><small>On Petal 6.1:1</small></div>
+        <div class="sw" style="--c:#4B2E24;--t:#FDF5F1"><div><b>Cocoa</b><span class="hex">#4B2E24</span></div><p>Chocolate. Secondary headings.</p><small>On Petal 11.4:1</small></div>
+        <div class="sw" style="--c:#6A4D42;--t:#FDF5F1"><div><b>Cocoa muted</b><span class="hex">#6A4D42</span></div><p>Muted body, captions, helper text.</p><small>On Petal 7.1:1</small></div>
+        <div class="sw" style="--c:#F4A51C;--t:#14191C"><div><b>Marigold</b><span class="hex">#F4A51C</span></div><p>The one warm accent. Festivals, one highlight per screen. Fill only.</p><small>Ink on it 8.6:1</small></div>
+        <div class="sw" style="--c:#8A5200;--t:#FDF5F1"><div><b>Marigold ink</b><span class="hex">#8A5200</span></div><p>Marigold as text on light.</p><small>On Petal 5.9:1</small></div>
+        <div class="sw" style="--c:#C42A3C;--t:#FFFBF9"><div><b>Rakhi</b><span class="hex">#C42A3C</span></div><p>Errors and urgent only. Also the ribbon in photos.</p><small>On Tissue 5.5:1</small></div>
+        <div class="sw" style="--c:#FADDDF;--t:#A31F30"><div><b>Rakhi soft</b><span class="hex">#FADDDF</span></div><p>Error banner, text in Rakhi deep #A31F30.</p><small>5.9:1</small></div>
+        <div class="sw" style="--c:#D3F1E8;--t:#14191C"><div><b>Mint soft</b><span class="hex">#D3F1E8</span></div><p>Success banner, signature badge.</p><small>Ink 14.8:1</small></div>
+      </div>
+    </div>
+
+    <div class="pal-group reveal">
+      <h3>Dark mode set</h3>
+      <div class="sw-grid sw-grid--dark">
+        <div class="sw" style="--c:#0E1315;--t:#F4EDE8"><div><b>Night</b><span class="hex">#0E1315</span></div><p>Page. Text Moon 16.2:1, Mint 10.2:1.</p></div>
+        <div class="sw" style="--c:#171E21;--t:#F4EDE8"><div><b>Night raised</b><span class="hex">#171E21</span></div><p>Inputs, sheets. Moon 14.6:1.</p></div>
+        <div class="sw" style="--c:#1E2C4D;--t:#F4EDE8"><div><b>Navy raised</b><span class="hex">#1E2C4D</span></div><p>Deep band. Moon 11.9:1.</p></div>
+        <div class="sw" style="--c:#F4EDE8;--t:#14191C"><div><b>Moon</b><span class="hex">#F4EDE8</span></div><p>Dark text. Muted #B9ADA6 is 8.5:1 on Night.</p></div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin-top:3rem">Which text goes on which surface</h3>
+    <p class="muted reveal" style="max-width:60ch">Ratios are WCAG 2.x. Body text needs 4.5 or more, large text (24px or bold 19px) 3 or more. Struck-through pairs are banned.</p>
+    <div class="rules reveal">
+      <div class="surf" style="--c:#FDF5F1;--t:#14191C">
+        <h4>On Petal and Tissue</h4>
+        <ul>
+          <li style="color:#14191C"><span>Ink, all text</span><span>16.5 / 17.2</span></li>
+          <li style="color:#4B2E24"><span>Cocoa, headings</span><span>11.4</span></li>
+          <li style="color:#6A4D42"><span>Cocoa muted, helper</span><span>7.1</span></li>
+          <li style="color:#0D6A5A"><span>Pine, links, brand text</span><span>6.1</span></li>
+          <li style="color:#8A5200"><span>Marigold ink, festival text</span><span>5.9</span></li>
+          <li style="color:#C42A3C"><span>Rakhi, errors</span><span>5.2</span></li>
+        </ul>
+        <p class="never"><b>Never:</b> <span class="nv" style="color:#62D2B5">Mint 1.7</span>, <span class="nv" style="color:#F4A51C">Marigold 1.9</span>, <span class="nv" style="color:#DDBF98">Kraft 1.6</span> as text.</p>
+      </div>
+      <div class="surf" style="--c:#DDBF98;--t:#14191C">
+        <h4>On Kraft</h4>
+        <ul>
+          <li style="color:#14191C"><span>Ink</span><span>10.1</span></li>
+          <li style="color:#4B2E24"><span>Cocoa</span><span>7.0</span></li>
+        </ul>
+        <p class="never"><b>Never:</b> Pine 3.7, Rakhi, Marigold ink. On Kraft soft only Ink, Cocoa muted 6.1, Pine 5.2.</p>
+      </div>
+      <div class="surf" style="--c:#1C2B4B;--t:#FDF5F1">
+        <h4>On Navy</h4>
+        <ul>
+          <li style="color:#FDF5F1"><span>Petal</span><span>13.0</span></li>
+          <li style="color:#62D2B5"><span>Mint</span><span>7.6</span></li>
+          <li style="color:#F4A51C"><span>Marigold</span><span>6.9</span></li>
+        </ul>
+        <p class="never"><b>Never:</b> Ink, Cocoa, Pine, Rakhi.</p>
+      </div>
+      <div class="surf" style="--c:#62D2B5;--t:#14191C">
+        <h4>On Mint fill</h4>
+        <ul><li><span>Ink only</span><span>9.6</span></li></ul>
+        <p class="never"><b>Never:</b> Petal 1.7, Pine 3.5.</p>
+      </div>
+      <div class="surf" style="--c:#F4A51C;--t:#14191C">
+        <h4>On Marigold fill</h4>
+        <ul><li><span>Ink only</span><span>8.6</span></li></ul>
+        <p class="never"><b>Never:</b> Petal, Cocoa.</p>
+      </div>
+      <div class="surf" style="--c:#14191C;--t:#F4EDE8">
+        <h4>On Ink and Night</h4>
+        <ul>
+          <li style="color:#F4EDE8"><span>Moon / Petal</span><span>16.2</span></li>
+          <li style="color:#62D2B5"><span>Mint</span><span>10.2</span></li>
+          <li style="color:#F4A51C"><span>Marigold</span><span>9.1</span></li>
+          <li style="color:#FF8F9B"><span>Rakhi light, errors</span><span>8.6</span></li>
+          <li style="color:#B9ADA6"><span>Moon muted</span><span>8.5</span></li>
+        </ul>
+        <p class="never"><b>Never:</b> Cocoa, Pine, Rakhi #C42A3C.</p>
+      </div>
+    </div>
+    <div class="flag reveal" style="margin-top:1.5rem;background:var(--bg-raised);color:var(--text);border:1.5px dashed var(--twine)">
+      <svg class="ic" style="color:var(--text-brand)" aria-hidden="true"><use href="#i-sparkle"/></svg>
+      <p>Accent discipline: marigold appears at most once per screen, on a festival badge or one highlight. Mint is a fill or a logo colour. Buttons are ink. If a screen has three coloured things, remove two.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TYPE -->
+<section class="sec sec--band" id="type">
+  <div class="wrap">
+    <h2 class="reveal">Type</h2>
+    <p class="lead reveal">Young Serif for headlines: round, open, friendly, close to the hand-lettered logo. Mukta for everything you read: it draws Latin and Devanagari together, so Nepali never looks like a pasted-in guest.</p>
+    <div class="type-grid">
+      <div class="reveal">
+        <p class="spec-big">Send love.</p>
+        <p class="spec-meta">Young Serif 400 (single weight), display. Tight leading 1.04 to 1.1, tracking -2%.</p>
+        <p class="spec-deva" lang="ne">माया पठाउनुहोस्</p>
+        <p class="spec-meta">Mukta 800 for Devanagari headlines (Young Serif falls through to it). Line height never below 1.65, no negative tracking.</p>
+        <div class="chips" lang="ne" aria-label="Nepali festival words"><span>रक्षाबन्धन</span><span>तीज</span><span>दशैं</span><span>तिहार</span><span>उपहार</span></div>
+        <p class="note">Happy Rakhi, Didi. Miss you lots. Love, Bhai.</p>
+        <p class="spec-meta">Kalam, only for the gift message itself: card preview, handwritten sign-off. Never for UI.</p>
+      </div>
+      <div class="reveal" style="--i:1">
+        <h3>Scale</h3>
+        <ul class="scale">
+          <li><span class="nm">Display<br>44-76px</span><span class="sm" style="font-size:clamp(2rem,1.2rem + 3vw,3.25rem);font-weight:800">Hero line</span></li>
+          <li><span class="nm">3xl<br>36-60px</span><span class="sm" style="font-size:var(--t-3xl);font-weight:800">Section title</span></li>
+          <li><span class="nm">2xl<br>28-40px</span><span class="sm" style="font-size:var(--t-2xl);font-weight:800">Product name</span></li>
+          <li><span class="nm">xl<br>22-28px</span><span class="sm" style="font-size:var(--t-xl)">Card heading</span></li>
+          <li><span class="nm">lg 20px</span><span class="sm" style="font-size:var(--t-lg);font-family:var(--font-text);font-weight:500">Lead paragraph and prices</span></li>
+          <li><span class="nm">base 17px</span><span class="sm" style="font-family:var(--font-text);font-weight:400;font-size:var(--t-base);line-height:1.6">Body text. Mukta runs small, so base is 17px, line height 1.6, measure 62ch.</span></li>
+          <li><span class="nm">sm 15px<br>xs 13px</span><span class="sm" style="font-family:var(--font-text);font-weight:500;font-size:var(--t-sm)">Helper text, captions, badges. Nothing smaller than 13px.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEM -->
+<section class="sec" id="system">
+  <div class="wrap">
+    <h2 class="reveal">Spacing, radius, motion</h2>
+    <div class="tok-grid">
+      <div class="reveal">
+        <h3>Spacing</h3>
+        <p class="muted small" style="margin-bottom:1rem">4px base. Sections breathe at 64 to 104px. Phone gutters are 16px.</p>
+        <div class="space-row"><span>4</span><i class="space-bar" style="width:4px"></i></div>
+        <div class="space-row"><span>8</span><i class="space-bar" style="width:8px"></i></div>
+        <div class="space-row"><span>12</span><i class="space-bar" style="width:12px"></i></div>
+        <div class="space-row"><span>16</span><i class="space-bar" style="width:16px"></i></div>
+        <div class="space-row"><span>24</span><i class="space-bar" style="width:24px"></i></div>
+        <div class="space-row"><span>32</span><i class="space-bar" style="width:32px"></i></div>
+        <div class="space-row"><span>48</span><i class="space-bar" style="width:48px"></i></div>
+        <div class="space-row"><span>64</span><i class="space-bar" style="width:64px"></i></div>
+        <div class="space-row"><span>96</span><i class="space-bar" style="width:min(96px,100%)"></i></div>
+        <div class="space-row"><span>128</span><i class="space-bar" style="width:min(128px,100%)"></i></div>
+
+        <h3 style="margin-top:2.5rem">Radius, one rule</h3>
+        <p class="muted small">Pill for what you press, 12px for what you type in, 20px for what holds a picture. Nothing else.</p>
+        <div class="radii">
+          <figure><span class="r-pill"></span><figcaption>Pill 999px: buttons, badges</figcaption></figure>
+          <figure><span class="r-field"></span><figcaption>Field 12px: inputs</figcaption></figure>
+          <figure><span class="r-frame"></span><figcaption>Frame 20px: photos, panels</figcaption></figure>
+        </div>
+        <p class="muted small" style="margin-top:1rem">Shadows are tinted cocoa, never grey-black, and only on lifted things (hovered buttons, sheets). Cards are a last resort: group with space and a dashed twine line first.</p>
+      </div>
+      <div class="reveal" style="--i:1">
+        <h3>Motion</h3>
+        <p class="muted small" style="margin-bottom:1rem">Things arrive like a parcel set down gently: fast start, long soft landing. Hover or tap the box to compare.</p>
+        <div class="motion" tabindex="0" role="button" aria-label="Play easing comparison" id="mo">
+          <div class="track"><span class="lab">Tapika ease-out</span><i></i></div>
+          <div class="track in-out"><span class="lab">ease-in-out</span><i></i></div>
+          <div class="track def"><span class="lab">Browser default</span><i></i></div>
+        </div>
+        <p class="spec-meta" style="max-width:none"><code>cubic-bezier(.16, 1, .3, 1)</code> for arrivals and reveals. <code>cubic-bezier(.65, 0, .35, 1)</code> for things that travel. The spring curve is for one tiny confirmation, like a tick landing.</p>
+        <div class="dur"><span>150 ms hover and press</span><span>250 ms fields and toggles</span><span>500 ms reveals</span><span>800 ms one hero entrance</span></div>
+        <p class="spec-meta" style="max-width:none">Animate transform and opacity only. Stagger 70 ms. Every sequence collapses to its end state under reduced motion. No looping animation anywhere except a loading skeleton.</p>
+        <h3 style="margin-top:2.5rem">Iconography</h3>
+        <p class="muted small">One family: Phosphor, Light weight (1.5px stroke feel), 24px, current text colour. Never mixed with another set, never emoji. The gift-box mark is the only custom drawing.</p>
+        <div class="row" style="gap:1.25rem;margin-top:1rem;color:var(--text)">
+          <svg class="ic" style="width:2rem;height:2rem" aria-label="gift"><use href="#i-gift"/></svg>
+          <svg class="ic" style="width:2rem;height:2rem" aria-label="heart"><use href="#i-heart"/></svg>
+          <svg class="ic" style="width:2rem;height:2rem" aria-label="package"><use href="#i-package"/></svg>
+          <svg class="ic" style="width:2rem;height:2rem" aria-label="airplane"><use href="#i-airplane"/></svg>
+          <svg class="ic" style="width:2rem;height:2rem" aria-label="camera"><use href="#i-camera"/></svg>
+          <svg class="ic" style="width:2rem;height:2rem" aria-label="message"><use href="#i-chat"/></svg>
+          <svg class="ic" style="width:2rem;height:2rem" aria-label="festival date"><use href="#i-cal"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPONENTS -->
+<section class="sec sec--band" id="components">
+  <div class="wrap">
+    <h2 class="reveal">Components</h2>
+    <p class="lead reveal">Buttons are ink, because ink is the logo and the quietest strong colour we own. Colour is saved for meaning.</p>
+    <div class="comp">
+      <div class="stack reveal">
+        <div>
+          <h3>Buttons</h3>
+          <div class="row">
+            <button class="btn btn--primary" type="button">Choose a gift</button>
+            <button class="btn btn--quiet" type="button">Add your message</button>
+            <button class="btn btn--festival" type="button">Rakhi sets</button>
+            <button class="btn" type="button" disabled>Pay with eSewa</button>
+          </div>
+          <p class="spec-meta" style="max-width:none">One primary per screen. Festival marigold only on a festival entry point. Labels fit on one line, three words at most for primary actions. Min height 48px.</p>
+        </div>
+        <div>
+          <h3>Badges</h3>
+          <div class="row">
+            <span class="badge b-sig">Signature</span>
+            <span class="badge b-fest">Rakhi</span>
+            <span class="badge b-wrap">Being wrapped</span>
+            <span class="badge b-out">Delivered</span>
+            <span class="badge b-bad">Needs a date</span>
+          </div>
+        </div>
+        <div>
+          <h3>Fields</h3>
+          <div class="stack" style="gap:1.25rem">
+            <div class="field"><label for="f1">Recipient's first name</label><input id="f1" type="text" placeholder="For example, Didi" autocomplete="off"><span class="help">We print this on the card only if you ask us to.</span></div>
+            <div class="field err"><label for="f2">Delivery suburb</label><input id="f2" type="text" value="Parramat" aria-invalid="true" aria-describedby="f2m"><span class="msg" id="f2m"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-warn"/></svg>We could not find that suburb. Check the spelling, or tell us on Instagram.</span></div>
+          </div>
+          <p class="spec-meta" style="max-width:none">Label above, never placeholder-as-label. Error text below, with an icon, never colour alone.</p>
+        </div>
+      </div>
+      <div class="stack reveal" style="--i:1">
+        <div>
+          <h3>Empty state</h3>
+          <div class="empty">
+            <svg class="mk" viewBox="0 0 64 64" aria-hidden="true"><use href="#tp-mark"/></svg>
+            <div><p style="font-family:var(--font-display);font-weight:800;font-size:var(--t-xl);line-height:1.2">Nothing here yet.</p><p class="muted">Start with someone you miss.</p></div>
+            <button class="btn btn--primary" type="button">Choose a gift</button>
+          </div>
+        </div>
+        <div>
+          <h3>Confirmation and error</h3>
+          <div class="stack" style="gap:.75rem">
+            <div class="banner banner--ok" role="status"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><div><b>Your gift is booked.</b><p>We have your eSewa screenshot and will confirm it soon. We'll message you when it is wrapped and again when it reaches their door.</p></div></div>
+            <div class="banner banner--bad" role="alert"><svg class="ic" aria-hidden="true"><use href="#i-warn"/></svg><div><b>We could not confirm your payment yet.</b><p>If the money has left your eSewa, send your order number to @tapika44 on Instagram and we will sort it out.</p></div></div>
+          </div>
+        </div>
+        <div>
+          <h3>Gift message</h3>
+          <p class="note" style="margin-top:.5rem">Dear Didi, hope this makes your Teej a little more like home. Love, Bhai.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO -->
+<section class="sec" id="logo">
+  <div class="wrap">
+    <h2 class="reveal">Logo</h2>
+    <p class="lead reveal">A lowercase, hand-lettered wordmark beside a small gift box with sparkle lines. Seen on a black circle on Instagram, and that circle stays the avatar.</p>
+    <div class="flag reveal" role="note">
+      <svg class="ic" aria-hidden="true"><use href="#i-warn"/></svg>
+      <p>Logo SVG is an approximation rebuilt from a 150px avatar. Request the original file from the owner and replace everything in <code>brand/logo/</code> before print, signage or packaging.</p>
+    </div>
+    <div class="logo-panels">
+      <div class="lp lp--wide reveal" style="--c:#FDF5F1;--t:#14191C"><svg viewBox="0 0 316 90" role="img" aria-label="Tapika lockup, ink on petal"><use href="#tp-lockup"/></svg><small>Ink on Petal. The default.</small></div>
+      <div class="lp reveal" style="--c:#14191C;--t:#62D2B5"><svg viewBox="0 0 316 90" role="img" aria-label="Tapika lockup, mint on ink"><use href="#tp-lockup"/></svg><small>Mint on Ink. The original, for dark surfaces.</small></div>
+      <div class="lp reveal" style="--c:#1C2B4B;--t:#FDF5F1"><svg viewBox="0 0 316 90" role="img" aria-label="Tapika lockup, petal on navy"><use href="#tp-lockup"/></svg><small>Petal on Navy.</small></div>
+      <div class="lp reveal" style="--c:#62D2B5;--t:#14191C"><svg viewBox="0 0 316 90" role="img" aria-label="Tapika lockup, ink on mint"><use href="#tp-lockup"/></svg><small>Ink on Mint.</small></div>
+      <div class="lp reveal" style="--c:#DDBF98;--t:#14191C"><svg viewBox="0 0 316 90" role="img" aria-label="Tapika lockup, ink on kraft"><use href="#tp-lockup"/></svg><small>Ink on Kraft, for packaging.</small></div>
+    </div>
+
+    <div class="logo-rules">
+      <div class="reveal">
+        <h3>Clear space and size</h3>
+        <div style="margin-top:1rem"><div class="clear-demo" style="--x:26px"><svg viewBox="0 0 316 90" aria-hidden="true"><use href="#tp-lockup"/></svg><span class="x" style="top:6px;left:50%">x</span><span class="x" style="bottom:6px;left:50%">x</span><span class="x" style="left:8px;top:50%">x</span><span class="x" style="right:8px;top:50%">x</span></div></div>
+        <ul class="facts">
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"/></svg><span>Keep clear space of x on every side, where x is the height of the letter "a" (about one third of the lockup height).</span></li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"/></svg><span>Minimum lockup width 96px on screen, 25mm in print. Below that, use the mark alone.</span></li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"/></svg><span>Mark alone: minimum 20px. Avatars and favicons use the mark mint on an Ink circle.</span></li>
+          <li><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"/></svg><span>One colour only, via currentColor. Ink, Mint, Petal. Nothing else.</span></li>
+        </ul>
+        <div class="sizes">
+          <div><svg viewBox="0 0 316 90" style="width:96px;color:var(--text)" aria-hidden="true"><use href="#tp-lockup"/></svg>96px</div>
+          <div><svg viewBox="0 0 316 90" style="width:160px;color:var(--text)" aria-hidden="true"><use href="#tp-lockup"/></svg>160px</div>
+          <div><svg viewBox="0 0 64 64" style="width:20px;color:var(--text)" aria-hidden="true"><use href="#tp-mark"/></svg>Mark 20px</div>
+          <div><svg viewBox="0 0 64 64" style="width:40px;height:40px;border-radius:50%;background:var(--c-ink);color:var(--c-mint);padding:7px" aria-hidden="true"><use href="#tp-mark"/></svg>Avatar</div>
+        </div>
+      </div>
+      <div class="reveal" style="--i:1">
+        <h3>Do and don't</h3>
+        <div class="dd">
+          <figure class="ok"><div class="tile"><svg viewBox="0 0 316 90" aria-hidden="true"><use href="#tp-lockup"/></svg></div><figcaption><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"/></svg>Use the supplied file as it is.</figcaption></figure>
+          <figure class="ok"><div class="tile" style="background:var(--c-ink)"><svg viewBox="0 0 316 90" style="color:var(--c-mint)" aria-hidden="true"><use href="#tp-lockup"/></svg></div><figcaption><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"/></svg>Mint only on Ink or Navy.</figcaption></figure>
+          <figure class="ok"><div class="tile"><svg viewBox="0 0 64 64" style="max-width:4rem" aria-hidden="true"><use href="#tp-mark"/></svg></div><figcaption><svg class="ic ic-sm" aria-hidden="true"><use href="#i-check"/></svg>Mark alone when small.</figcaption></figure>
+          <figure class="no"><div class="tile"><svg viewBox="0 0 316 90" style="transform:scaleX(1.5)" aria-hidden="true"><use href="#tp-lockup"/></svg></div><figcaption><svg class="ic ic-sm" aria-hidden="true"><use href="#i-x"/></svg>Don't stretch or squash.</figcaption></figure>
+          <figure class="no"><div class="tile"><svg viewBox="0 0 316 90" style="color:var(--c-mint)" aria-hidden="true"><use href="#tp-lockup"/></svg></div><figcaption><svg class="ic ic-sm" aria-hidden="true"><use href="#i-x"/></svg>Don't put Mint on a light surface.</figcaption></figure>
+          <figure class="no"><div class="tile"><svg viewBox="0 0 316 90" style="color:var(--c-marigold)" aria-hidden="true"><use href="#tp-lockup"/></svg></div><figcaption><svg class="ic ic-sm" aria-hidden="true"><use href="#i-x"/></svg>Don't recolour to a festival colour.</figcaption></figure>
+          <figure class="no"><div class="tile"><svg viewBox="0 0 316 90" style="transform:rotate(-12deg)" aria-hidden="true"><use href="#tp-lockup"/></svg></div><figcaption><svg class="ic ic-sm" aria-hidden="true"><use href="#i-x"/></svg>Don't tilt or animate it.</figcaption></figure>
+          <figure class="no"><div class="tile"><svg viewBox="0 0 316 90" style="filter:drop-shadow(3px 4px 0 var(--c-rakhi))" aria-hidden="true"><use href="#tp-lockup"/></svg></div><figcaption><svg class="ic ic-sm" aria-hidden="true"><use href="#i-x"/></svg>Don't add shadows, outlines or glows.</figcaption></figure>
+          <figure class="no"><div class="tile"><span style="font:800 2.25rem/1 var(--font-display);letter-spacing:.08em;color:var(--text)">TAPIKA</span></div><figcaption><svg class="ic ic-sm" aria-hidden="true"><use href="#i-x"/></svg>Don't retype it in capitals or a font.</figcaption></figure>
+        </div>
+        <p class="spec-meta" style="max-width:none">Also: never place it on a busy photo without a scrim, never crop the sparkles, never pair it with a second badge or tagline lockup.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTOS -->
+<section class="sec sec--band" id="photo">
+  <div class="wrap">
+    <h2 class="reveal">Photography</h2>
+    <p class="lead reveal">The gift is the hero. Natural window light, one product sharp in frame, props from the table: kraft paper, marigold garland, navy card stock, gold foil, chocolate.</p>
+    <div class="photo">
+      <div class="shots reveal">
+        <div class="shot"><span class="frm r45" style="--c:#DDBF98">4:5</span><div><h3>Product and Instagram</h3><p>Hero item sharp, soft side light, one garland edge or ribbon at most.</p></div></div>
+        <div class="shot"><span class="frm r11" style="--c:#62D2B5">1:1</span><div><h3>Grid and cart thumbnails</h3><p>Centred product on kraft or blush paper. Same light direction across a set.</p></div></div>
+        <div class="shot"><span class="frm r169" style="--c:#1C2B4B">16:9</span><div><h3>Hero and banners</h3><p>Compose for 16:9 from the start. Never crop the product to fit.</p></div></div>
+        <p class="spec-meta" style="max-width:none">Daylight white balance, no flash, no heavy filters or presets. Rakhi red and marigold must read true. Hands holding a gift are welcome, faces are not (see right).</p>
+      </div>
+      <div class="consent reveal" style="--i:1">
+        <svg class="ic" style="width:2rem;height:2rem;color:var(--c-mint)" aria-hidden="true"><use href="#i-camera"/></svg>
+        <h3>Personalised frames: privacy first</h3>
+        <p>Never show a customer's face, name, date or message from a personalised photo frame without their written consent. This applies to the site, Instagram, ads and the Command Center demo data.</p>
+        <p>Show the frame with the owner's own sample prints, a blank mat, or a softly blurred image. Reviews are real text, anonymised ("A customer in Sydney"), and never invented. Alt text describes the product, never a person.</p>
+      </div>
+    </div>
+    <div class="lists">
+      <ul class="yes reveal">
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>One gift per frame, shot at its real colour and scale.</li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Wrapping and card visible: the personal touch is the product.</li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Compress at upload, lazy-load below the fold, keep the original.</li>
+      </ul>
+      <ul class="nope reveal" style="--i:1">
+        <li><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Stock photos of strangers hugging in airports.</li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Text, logos or price tags laid over the product.</li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Another brand's packaging in frame.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- VOICE -->
+<section class="sec sec--deep" id="voice">
+  <div class="wrap">
+    <h2 class="reveal" style="color:var(--text-on-deep)">Voice</h2>
+    <p class="lead reveal">Warm, plain English with Nepali in it where Nepali is the natural word: Didi, Dai, Aama, Tika, Tihar. Short sentences, "you" and "your", one exclamation mark per page at most. The sender is speaking to someone they love, so we speak to the sender like a trusted cousin who happens to live in Australia.</p>
+    <dl class="voice">
+      <div class="vrow reveal"><dt>Hero</dt><dd>
+        <p class="vline big">Send a little love to Australia.</p>
+        <p class="vline">Choose a gift. Make it personal. We'll take care of the rest.</p>
+        <p class="vline">Rakhi is coming. Let her open a gift from you.<small>Festival swaps: "Teej in Sydney can still feel like home." "Dashain feels bigger when someone remembers you."</small></p>
+        <p class="nepali" lang="ne">शुभ दशैं</p>
+      </dd></div>
+      <div class="vrow reveal"><dt>Buttons</dt><dd>
+        <div class="row"><button class="btn btn--primary" type="button">Choose a gift</button><button class="btn btn--quiet" type="button">Make it personal</button><button class="btn btn--quiet" type="button">Pay with eSewa</button><button class="btn btn--quiet" type="button">Track my gift</button></div>
+        <p class="vline" style="font-family:var(--font-text);font-weight:500;font-size:var(--t-base)">Verb first, one to three words, one label per intent. Never "Submit", "Click here" or "Buy now".</p>
+      </dd></div>
+      <div class="vrow reveal"><dt>Empty states</dt><dd>
+        <p class="vline">Nothing here yet. Start with someone you miss.</p>
+        <p class="vline">We could not find that gift. Try "rakhi" or "chocolate", or tell us who it is for and we will suggest something.</p>
+      </dd></div>
+      <div class="vrow reveal"><dt>Confirmation</dt><dd>
+        <p class="vline">Your gift is booked. We'll message you when it is wrapped and again when it reaches their door.</p>
+        <p class="vline">With care, <span class="hex" style="color:var(--c-mint)">{owner_name}</span><small>The owner's name always comes from the site setting, never typed into a template.</small></p>
+      </dd></div>
+      <div class="vrow reveal"><dt>Errors</dt><dd>
+        <p class="vline">We could not confirm your eSewa payment yet. If the money has left your account, send your order number to @tapika44 on Instagram and we will sort it out.</p>
+        <p class="vline">That date is too soon for us to wrap and deliver with care. Please pick {earliest_date} or later.</p>
+        <p class="vline">Something went wrong on our side, not yours. Please try again in a moment.<small>Say what happened, whose fault it is only if it is ours, and what to do next. Never blame the sender, never use jargon.</small></p>
+      </dd></div>
+    </dl>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <svg viewBox="0 0 316 90" aria-label="Tapika"><use href="#tp-lockup"/></svg>
+      <p class="muted small">Brand guide 1.0 for tapika.shop and the Command Center. Files in <code>brand/</code>.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  try{root.classList.add('js');}catch(e){}
+  /* scroll reveals: once, IntersectionObserver */
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(el){io.observe(el);});
+  }else{els.forEach(function(el){el.classList.add('in');});}
+  /* theme toggle for review only */
+  var btn=document.getElementById('theme');
+  function dark(){var t=root.getAttribute('data-theme');if(t)return t==='dark';return window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches;}
+  function sync(){var d=dark();btn.textContent=d?'Light mode':'Dark mode';btn.setAttribute('aria-pressed',String(d));}
+  btn.addEventListener('click',function(){root.setAttribute('data-theme',dark()?'light':'dark');sync();});
+  sync();
+  /* tap to play easing demo on touch */
+  var mo=document.getElementById('mo');
+  mo.addEventListener('click',function(){mo.classList.toggle('go');});
+  mo.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();mo.classList.toggle('go');}});
+})();
+</script>
+</body>
+</html>

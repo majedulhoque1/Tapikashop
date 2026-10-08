@@ -1,0 +1,162 @@
+// Gift templates: the four builder starters plus ready-made gifts. Read by builder/recommend.ts, builder/bom.ts and the shop.
+import type { GiftTemplate } from '../types'
+
+export const TEMPLATES: GiftTemplate[] = [
+  // --- Builder starters ---
+  {
+    id: 'tpl-rakhi-set',
+    name: 'Rakhi Set',
+    description: 'Rakhi threads with kaju barfi and soan papdi for a brother or sister far away.',
+    formatId: 'box',
+    starter: true,
+    occasions: ['rakhi', 'festival'],
+    recipients: ['sibling'],
+    tags: ['rakhi', 'sweets', 'festive', 'mithai'],
+    cardId: 'card-happy-rakhi',
+    components: [
+      { productId: 'rakhi-classic-thread', qty: 2 },
+      { productId: 'kaju-barfi-box', qty: 1 },
+      { productId: 'soan-papdi-box', qty: 1 },
+    ],
+    image: '/img/products/rakhi-mithai-box-silver-rakhi.webp',
+  },
+  {
+    id: 'tpl-birthday-box',
+    name: 'Birthday Box',
+    description: 'Chocolates and a little teddy, with a birthday card.',
+    formatId: 'box',
+    starter: true,
+    occasions: ['birthday'],
+    recipients: ['friend', 'sibling', 'partner', 'child'],
+    tags: ['chocolate', 'teddy', 'kids'],
+    cardId: 'card-happy-birthday',
+    components: [
+      { productId: 'kitkat-share-bag', qty: 1 },
+      { productId: 'ferrero-rocher-t8', qty: 1 },
+      { productId: 'teddy-small', qty: 1 },
+    ],
+    image: '/img/products/birthday-box-kitkat-roses.webp',
+  },
+  {
+    id: 'tpl-love-hamper',
+    name: 'Love Hamper',
+    description: 'A large teddy, truffles and Ferrero with an "I love you" card.',
+    formatId: 'hamper',
+    starter: true,
+    occasions: ['love', 'anniversary'],
+    recipients: ['partner'],
+    tags: ['chocolate', 'teddy', 'love', 'premium'],
+    cardId: 'card-i-love-you',
+    components: [
+      { productId: 'teddy-large', qty: 1 },
+      { productId: 'chocolate-truffle-box', qty: 1 },
+      { productId: 'ferrero-rocher-t8', qty: 1 },
+    ],
+    image: '/img/products/valentine-teddies-roses-set.webp',
+  },
+  {
+    id: 'tpl-thank-you-platter',
+    name: 'Thank You Platter',
+    description: 'Cashew, pistachio and walnut with a "Thanks for everything" card.',
+    formatId: 'platter',
+    starter: true,
+    occasions: ['thank-you'],
+    recipients: ['parent', 'colleague', 'friend'],
+    tags: ['dry-fruit', 'healthy', 'premium'],
+    cardId: 'card-thanks-for-everything',
+    components: [
+      { productId: 'cashew-pack', qty: 1 },
+      { productId: 'pistachio-pack', qty: 1 },
+      { productId: 'walnut-pack', qty: 1 },
+    ],
+    image: '/img/products/thank-you-card-gift-box.webp',
+  },
+
+  // --- Ready-made ---
+  {
+    id: 'tpl-heart-collage',
+    name: 'Heart Collage Frame',
+    description: 'Our signature personalised frame: your photos, your names, your date.',
+    formatId: 'photo-frame',
+    starter: false,
+    occasions: ['love', 'anniversary', 'birthday', 'wedding'],
+    recipients: ['partner'],
+    tags: ['photos', 'personalised', 'love', 'couple'],
+    cardId: 'card-i-love-you',
+    components: [{ productId: 'collage-frame-heart', qty: 1 }],
+    image: '/img/products/magnetic-fridge-photo-frame.webp',
+  },
+  {
+    id: 'tpl-festival-sweets',
+    name: 'Festival Sweets Box',
+    description: 'Laddoo, barfi and soan papdi for the whole family.',
+    formatId: 'box',
+    starter: false,
+    occasions: ['festival', 'wedding', 'new-baby'],
+    recipients: ['parent', 'friend', 'sibling'],
+    tags: ['sweets', 'mithai', 'festive'],
+    cardId: null,
+    components: [
+      { productId: 'motichoor-laddoo-box', qty: 1 },
+      { productId: 'kaju-barfi-box', qty: 1 },
+      { productId: 'soan-papdi-box', qty: 1 },
+    ],
+    image: '/img/products/dry-fruit-platter-mithai-garland.webp',
+  },
+  {
+    id: 'tpl-dhaka-keepsake',
+    name: 'Dhaka Keepsake Set',
+    description: 'A dhaka scarf and pouch with cashews: a taste of home.',
+    formatId: 'few-things',
+    starter: false,
+    occasions: ['festival', 'thank-you', 'anniversary'],
+    recipients: ['parent', 'friend', 'colleague'],
+    tags: ['dhaka', 'nepali', 'handmade', 'dry-fruit'],
+    cardId: 'card-thanks-for-everything',
+    components: [
+      { productId: 'dhaka-scarf', qty: 1 },
+      { productId: 'dhaka-pouch', qty: 1 },
+      { productId: 'cashew-pack', qty: 1 },
+    ],
+    image: '/img/products/rakhi-hamper-gift-basket.webp',
+  },
+  {
+    id: 'tpl-sweet-hug',
+    name: 'Sweet Hug Hamper',
+    description: 'A small teddy with KitKat and silk bars, to say "thinking of you".',
+    formatId: 'hamper',
+    starter: false,
+    occasions: ['love', 'birthday', 'new-baby'],
+    recipients: ['partner', 'child', 'friend'],
+    tags: ['teddy', 'chocolate', 'cuddly', 'kids'],
+    cardId: 'card-happy-birthday',
+    components: [
+      { productId: 'teddy-small', qty: 1 },
+      { productId: 'kitkat-share-bag', qty: 1 },
+      { productId: 'cadbury-silk-bar', qty: 2 },
+    ],
+    image: '/img/products/teddy-gold-rose-galaxy-box.webp',
+  },
+  {
+    id: 'tpl-premium-perfume',
+    name: 'Perfume & Truffles Box',
+    description: 'A perfume gift set with a box of truffles, for someone special.',
+    formatId: 'box',
+    starter: false,
+    occasions: ['birthday', 'anniversary', 'love'],
+    recipients: ['partner', 'parent'],
+    tags: ['premium', 'perfume', 'chocolate'],
+    cardId: null,
+    components: [
+      { productId: 'perfume-gift-set', qty: 1 },
+      { productId: 'chocolate-truffle-box', qty: 1 },
+    ],
+    image: '/img/products/grooming-gift-basket-ferrero.webp',
+  },
+]
+
+export function getTemplate(id: string, templates: readonly GiftTemplate[] = TEMPLATES): GiftTemplate {
+  const t = templates.find((x) => x.id === id)
+  if (!t) throw new Error(`Unknown template "${id}"`)
+  return t
+}

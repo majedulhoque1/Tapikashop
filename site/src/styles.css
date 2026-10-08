@@ -1,0 +1,67 @@
+/* Global CSS. Order matters: Tailwind, then brand tokens, then the Tailwind theme that maps tokens to utility names.
+   Source of truth for tokens is ../brand/ — run `npm run sync:brand` after editing them there. */
+@import "tailwindcss";
+@import "./styles/tokens.css";
+@import "./styles/tailwind-theme.css";
+
+body {
+  background: var(--tp-bg);
+  color: var(--tp-text);
+  font-family: var(--tp-font-text);
+}
+
+/* Hidden until GSAP reveals it. The class is set by an inline <head> script (see lib/motion.ts), never under reduced motion. */
+html.motion [data-reveal] { visibility: hidden; }
+
+/* Paper grain over the whole customer site: the page should feel like tissue and kraft, not a flat screen. */
+.grain { position: relative; isolation: isolate; }
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .29 0 0 0 0 .18 0 0 0 0 .14 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .grain::after { mix-blend-mode: screen; opacity: 0.035; } }
+
+/* Dot grid, like the back of a postal form. */
+.dot-grid {
+  background-image: radial-gradient(rgb(var(--tp-shadow-tint) / 0.16) 1px, transparent 1.2px);
+  background-size: 18px 18px;
+}
+
+/* Underline that draws in from the left on hover / focus. */
+.draw-line {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  transition: background-size 350ms var(--tp-ease-out);
+  padding-bottom: 2px;
+}
+.draw-line:hover, .draw-line:focus-visible, .group:hover .draw-line, .draw-line[aria-current="page"] { background-size: 100% 2px; }
+
+/* A photo printed and laid on the table: tissue border, soft cocoa shadow. */
+.print {
+  background: var(--tp-c-tissue);
+  padding: 10px 10px 34px;
+  border-radius: var(--tp-radius-frame);
+  box-shadow: 0 1px 2px rgb(75 46 36 / 0.12), 0 18px 40px -12px rgb(75 46 36 / 0.35);
+}
+
+/* Airmail edge: coral, paper and mint diagonal stripes. Used above the footer. */
+.airmail {
+  background: repeating-linear-gradient(-45deg, var(--tp-c-coral) 0 14px, var(--tp-c-paper) 14px 28px, var(--tp-c-mint) 28px 42px, var(--tp-c-paper) 42px 56px);
+}
+
+/* Festival marquee. Pauses on hover; static under reduced motion. */
+@keyframes tp-marquee { to { transform: translateX(-50%); } }
+.marquee-track { animation: tp-marquee 48s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+/* Envelope flap for the reviews note. */
+.envelope-flap { clip-path: polygon(0 0, 100% 0, 50% 100%); }

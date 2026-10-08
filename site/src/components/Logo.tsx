@@ -1,0 +1,47 @@
+// Tapika logo as inline SVG (approximation, see brand/BRAND.md). Uses currentColor; Header and Footer place it.
+import type { SVGProps } from 'react'
+
+const MARK = (
+  <g fill="none" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 25h40a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H12a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3z" />
+    <path d="M14 36v18a3 3 0 0 0 3 3h30a3 3 0 0 0 3-3V36" />
+    <path d="M32 25v32" />
+    <path d="M32 25C26 25 21 22.5 21 18c0-3 2.5-4.5 5-4 3.5.8 6 6.5 6 11z" />
+    <path d="M32 25c6 0 11-2.5 11-7 0-3-2.5-4.5-5-4-3.5.8-6 6.5-6 11z" />
+    <path d="M50 14l3.5-3.5M53 20h4.5M47 8V4" />
+    <path d="M13 13l-3.5-3.5" />
+  </g>
+)
+
+export function LogoMark(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 64 64" role="img" aria-label="Tapika" {...props}>
+      {MARK}
+    </svg>
+  )
+}
+
+export function LogoLockup(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 316 90" role="img" aria-label="Tapika" {...props}>
+      <g transform="translate(0 13)">{MARK}</g>
+      <g transform="translate(80 0)">
+        <g fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 12v36c0 7 4 10 11 10 3 0 5-1 7-3" />
+          <path d="M5 31h24" />
+          <path d="M76 44a14 14 0 1 0-28 0 14 14 0 1 0 28 0z" />
+          <path d="M76 30v22q0 6 7 6" />
+          <path d="M98 30v50" />
+          <path d="M126 44a14 14 0 1 0-28 0 14 14 0 1 0 28 0z" />
+          <path d="M142 30v28" />
+          <path d="M158 10v48" />
+          <path d="M182 30c-8 8-16 13-24 16" />
+          <path d="M165 43c7 3 13 8 19 15" />
+          <path d="M220 44a14 14 0 1 0-28 0 14 14 0 1 0 28 0z" />
+          <path d="M220 30v22q0 6 7 6" />
+        </g>
+        <circle cx="142" cy="15" r="4.5" fill="currentColor" />
+      </g>
+    </svg>
+  )
+}

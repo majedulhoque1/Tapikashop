@@ -1,0 +1,87 @@
+/* =========================================================================
+   TAPIKA  Tailwind v4 theme mapping  (brand/tailwind-theme.css)
+   -------------------------------------------------------------------------
+   USE THIS FILE: in the Tailwind entry CSS only, right after the Tailwind
+   import and AFTER tokens.css has been loaded:
+
+       @import "tailwindcss";
+       @import "../brand/tokens.css";
+       @import "../brand/tailwind-theme.css";
+
+   THIS FILE imports nothing and defines no real values. It only points
+   Tailwind names at the --tp-* variables in tokens.css, so dark mode
+   (which swaps those variables) works without any `dark:` classes.
+   `@theme inline` is deliberate: utilities keep the var() reference
+   instead of freezing the light value at build time.
+
+   Resulting utilities (examples):
+     bg-surface  bg-raised  bg-band  bg-deep  bg-action  bg-brand  bg-accent
+     text-ink  text-muted  text-brand-text  text-accent-text  text-danger-text
+     border-line  border-field  font-display  font-text  font-note
+     rounded-field  rounded-frame  rounded-pill  shadow-soft  shadow-lift
+   Rule: text-brand-text / text-accent-text are the TEXT-SAFE versions.
+   For fills use bg-brand (mint) / bg-accent (marigold) with text-ink
+   (on-accent) on top. Never put text-brand (mint) on a light surface.
+   ========================================================================= */
+@theme inline {
+  /* Clear Tailwind's default palette so only brand colours exist. */
+  --color-*: initial;
+
+  --color-surface:   var(--tp-bg);
+  --color-raised:    var(--tp-bg-raised);
+  --color-band:      var(--tp-bg-band);
+  --color-blush:     var(--tp-bg-blush);
+  --color-minty:     var(--tp-bg-mint);
+  --color-coral:     var(--tp-c-coral);
+  --color-deep:      var(--tp-bg-deep);
+  --color-wrap:      var(--tp-bg-wrap);
+  --color-ink:       var(--tp-text);
+  --color-muted:     var(--tp-text-muted);
+  --color-cocoa:     var(--tp-text-heading-2);
+  --color-on-deep:   var(--tp-text-on-deep);
+  --color-brand:     var(--tp-brand-fill);
+  --color-brand-text:var(--tp-text-brand);
+  --color-accent:    var(--tp-accent-fill);
+  --color-accent-text: var(--tp-text-accent);
+  --color-on-accent: var(--tp-text-on-accent);
+  --color-danger:    var(--tp-danger-fill);
+  --color-on-danger: var(--tp-text-on-danger);
+  --color-danger-text: var(--tp-text-danger);
+  --color-danger-soft: var(--tp-danger-soft);
+  --color-on-danger-soft: var(--tp-text-danger-soft);
+  --color-success-soft: var(--tp-success-soft);
+  --color-success-text: var(--tp-text-success);
+  --color-action:    var(--tp-action-bg);
+  --color-action-hover: var(--tp-action-bg-hover);
+  --color-on-action: var(--tp-action-text);
+  --color-line:      var(--tp-border);
+  --color-field:     var(--tp-border-field);
+  --color-focus:     var(--tp-focus);
+  --color-transparent: transparent;
+  --color-current:   currentColor;
+
+  --font-display: var(--tp-font-display);
+  --font-text:    var(--tp-font-text);
+  --font-note:    var(--tp-font-note);
+  --font-sans:    var(--tp-font-text);
+
+  --text-xs:   var(--tp-text-xs);
+  --text-sm:   var(--tp-text-sm);
+  --text-base: var(--tp-text-base);
+  --text-lg:   var(--tp-text-lg);
+  --text-xl:   var(--tp-text-xl);
+  --text-2xl:  var(--tp-text-2xl);
+  --text-3xl:  var(--tp-text-3xl);
+  --text-display: var(--tp-text-display);
+
+  --radius-field: var(--tp-radius-field);
+  --radius-frame: var(--tp-radius-frame);
+  --radius-pill:  var(--tp-radius-pill);
+
+  --shadow-soft: var(--tp-shadow-1);
+  --shadow-lift: var(--tp-shadow-2);
+
+  --ease-out:    var(--tp-ease-out);
+  --ease-in-out: var(--tp-ease-in-out);
+  --ease-spring: var(--tp-ease-spring);
+}
